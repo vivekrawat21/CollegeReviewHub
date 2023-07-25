@@ -10,7 +10,7 @@ const Navbar = (props: Props) => {
     bg-gradient-to-r from-purple-200  to-blue-400 text-white
     "
     >
-      <div className="flex items-center">
+      <div className="flex items-center bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent">
         <Link href="/" className="text-2xl font-bold">
          ReviewHub
         </Link>

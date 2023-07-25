@@ -4,6 +4,16 @@ import React from "react";
 const SignUp = () => {
   return (
     <div className="flex justify-center items-center h-screen">
+      <div className="absolute top-0 left-0 mt-4 ml-4">
+        <Link href="/">
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="button"
+          >
+            Back
+          </button>
+        </Link>
+      </div>
       <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <h1 className="text-2xl font-bold mb-6">Sign Up</h1>
         <form>
@@ -62,7 +72,7 @@ const SignUp = () => {
           className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 text-center mt-4 ml-8"
           href="/Login"
         >
-          Already have an account? 
+          Already have an account?
         </Link>
       </div>
     </div>

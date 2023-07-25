@@ -8,17 +8,20 @@ const Home = (props: Props) => {
     <div className="flex flex-col items-center lg:flex-row lg:justify-between lg:h-[80vh] lg:mt-16 px-4  md:px-16 lg:px-24 mt-10">
       {/* Left Side */}
       <div className="lg:w-1/2 lg:flex lg:flex-col lg:items-start lg:justify-center lg:pr-8">
-        <h1 className="text-4xl font-bold mb-4 sm:mb-6">Welcome to CollegeReviewHub</h1>
+        <h1 className="text-4xl font-bold mb-4 sm:mb-6">
+          Welcome to
+          <span className="pl-3 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent">
+            CollegeReviewHub
+          </span>
+        </h1>
         <p className="text-lg mb-10">
           Share and read honest reviews about colleges from students like you.
           Make informed decisions about your educational future.
         </p>
-        <Link
-        href="/Signup"
-        >
-        <button className="bg-blue-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-600 mb-6">
-          Get Started
-        </button>
+        <Link href="/Signup">
+          <button className="bg-slate-950 text-white px-6 py-3 rounded-lg font-bold hover:bg-slate-700 mb-6">
+            Get Started
+          </button>
         </Link>
       </div>
 

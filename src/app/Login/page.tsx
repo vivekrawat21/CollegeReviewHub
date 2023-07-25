@@ -4,13 +4,12 @@ import React from 'react';
 const Login = () => {
   return (
     <div className="flex justify-center items-center h-screen relative">
-      {/* Back button */}
       <div className="absolute top-0 left-0 mt-4 ml-4">
         <Link
         href="/"
         >
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="bg-slate-950 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           type="button"
         >
           Back
@@ -44,7 +43,7 @@ const Login = () => {
           </div>
           <div className="flex items-center justify-between">
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-slate-950 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="button"
             >
               Login

@@ -7,7 +7,7 @@ const SignUp = () => {
       <div className="absolute top-0 left-0 mt-4 ml-4">
         <Link href="/">
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="button"
           >
             Back
@@ -61,7 +61,7 @@ const SignUp = () => {
           </div>
           <div className="flex items-center justify-between">
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="button"
             >
               Sign Up
@@ -69,7 +69,7 @@ const SignUp = () => {
           </div>
         </form>
         <Link
-          className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 text-center mt-4 ml-8"
+          className="inline-block align-baseline font-bold text-sm text-slate-800 hover:text-slate-700 text-center mt-4 ml-8"
           href="/Login"
         >
           Already have an account?

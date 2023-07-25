@@ -6,7 +6,6 @@ type Props = {};
 const Home = (props: Props) => {
   return (
     <div className="flex flex-col items-center lg:flex-row lg:justify-between lg:h-[80vh] lg:mt-16 px-4  md:px-16 lg:px-24 mt-10">
-      {/* Left Side */}
       <div className="lg:w-1/2 lg:flex lg:flex-col lg:items-start lg:justify-center lg:pr-8">
         <h1 className="text-4xl font-bold mb-4 sm:mb-6">
           Welcome to

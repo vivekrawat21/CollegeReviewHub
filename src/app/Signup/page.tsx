@@ -1,4 +1,5 @@
-import React from 'react';
+import Link from "next/link";
+import React from "react";
 
 const SignUp = () => {
   return (
@@ -7,7 +8,10 @@ const SignUp = () => {
         <h1 className="text-2xl font-bold mb-6">Sign Up</h1>
         <form>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="username"
+            >
               Username
             </label>
             <input
@@ -18,7 +22,10 @@ const SignUp = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="email"
+            >
               Email
             </label>
             <input
@@ -29,7 +36,10 @@ const SignUp = () => {
             />
           </div>
           <div className="mb-6">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="password"
+            >
               Password
             </label>
             <input
@@ -48,6 +58,12 @@ const SignUp = () => {
             </button>
           </div>
         </form>
+        <Link
+          className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 text-center mt-4 ml-8"
+          href="/Login"
+        >
+          Already have an account? 
+        </Link>
       </div>
     </div>
   );

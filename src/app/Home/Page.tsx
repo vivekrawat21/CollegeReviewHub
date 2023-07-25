@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 type Props = {};
@@ -12,9 +13,13 @@ const Home = (props: Props) => {
           Share and read honest reviews about colleges from students like you.
           Make informed decisions about your educational future.
         </p>
+        <Link
+        href="/Signup"
+        >
         <button className="bg-blue-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-600 mb-6">
           Get Started
         </button>
+        </Link>
       </div>
 
       <div className="lg:w-1/2">

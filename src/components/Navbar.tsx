@@ -23,13 +23,8 @@ const Navbar = (props: Props) => {
           </Link>
         </li>
         <li>
-          <Link href="/" className="transition duration-300 ease-in-out hover:text-red-100">
+          <Link href="/Review" className="transition duration-300 ease-in-out hover:text-red-100">
             Reviews
-          </Link>
-        </li>
-        <li>
-          <Link href="/" className="transition duration-300 ease-in-out hover:text-red-100">
-            About
           </Link>
         </li>
       </ul>

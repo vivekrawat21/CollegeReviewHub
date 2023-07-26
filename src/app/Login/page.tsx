@@ -4,7 +4,7 @@ import React from "react";
 const Login = () => {
   return (
     <div className="flex justify-center items-center h-[90vh] relative">
-      <BackButton/>
+      <BackButton link="/"/>
       <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <h1 className="text-4xl font-bold mb-4 sm:mb-6
         bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent

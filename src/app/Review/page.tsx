@@ -1,4 +1,5 @@
 "use client"
+import BackButton from "@/components/BackButton";
 import Link from "next/link";
 import React, { useState } from "react";
 import { FaPlus } from "react-icons/fa";
@@ -33,6 +34,7 @@ const ReviewsPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-8 min-h-screen relative">
+      <BackButton link="/"/>
     <div className="flex justify-center mb-6">
       <input
         type="text"

@@ -3,7 +3,7 @@ import React from "react";
 
 const SignUp = () => {
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center h-screen relative">
       <div className="absolute top-0 left-0 mt-4 ml-4">
         <Link href="/">
           <button

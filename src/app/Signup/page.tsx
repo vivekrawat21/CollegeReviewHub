@@ -15,7 +15,12 @@ const SignUp = () => {
         </Link>
       </div>
       <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-        <h1 className="text-2xl font-bold mb-6">Sign Up</h1>
+        <h1
+          className="text-4xl font-bold mb-6
+           bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent"
+        >
+          Sign Up
+        </h1>
         <form>
           <div className="mb-4">
             <label
@@ -73,8 +78,10 @@ const SignUp = () => {
           Already have an account?
           <span>
             <Link href="/Login">
-              <button className="text-slate-500 hover:text-slate-900 ml-2
-              transition-colors duration-300 ease-in-out">
+              <button
+                className="text-slate-500 hover:text-slate-900 ml-2
+              transition-colors duration-300 ease-in-out"
+              >
                 Login
               </button>
             </Link>

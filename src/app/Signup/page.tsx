@@ -61,19 +61,25 @@ const SignUp = () => {
           </div>
           <div className="flex items-center justify-between">
             <button
-              className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline
+              transition-colors duration-300 ease-in-out"
               type="button"
             >
               Sign Up
             </button>
           </div>
         </form>
-        <Link
-          className="inline-block align-baseline font-bold text-sm text-slate-800 hover:text-slate-700 text-center mt-4 ml-8"
-          href="/Login"
-        >
+        <div className="inline-block align-baseline font-bold text-sm text-slate-800 hover:text-slate-700 text-center mt-4 ml-8">
           Already have an account?
-        </Link>
+          <span>
+            <Link href="/Login">
+              <button className="text-slate-500 hover:text-slate-900 ml-2
+              transition-colors duration-300 ease-in-out">
+                Login
+              </button>
+            </Link>
+          </span>
+        </div>
       </div>
     </div>
   );

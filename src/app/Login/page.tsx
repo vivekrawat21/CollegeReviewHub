@@ -1,19 +1,10 @@
-import Link from "next/link";
+import BackButton from "@/components/BackButton";
 import React from "react";
 
 const Login = () => {
   return (
-    <div className="flex justify-center items-center h-screen relative">
-      <div className="absolute top-0 left-0 mt-4 ml-4">
-        <Link href="/">
-          <button
-            className="bg-slate-950 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            type="button"
-          >
-            Back
-          </button>
-        </Link>
-      </div>
+    <div className="flex justify-center items-center h-[90vh] relative">
+      <BackButton/>
       <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <h1 className="text-4xl font-bold mb-4 sm:mb-6
         bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent

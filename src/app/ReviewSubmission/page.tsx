@@ -5,7 +5,7 @@ const ReviewSubmission = () => {
   return (
     <div className="container mx-auto px-4 py-8 h-[90vh] mt-10 relative">
       <BackButton link="/Review"/>
-      <h1 className="text-4xl font-bold my-10
+      <h1 className="text-4xl font-bold my-10 pt-10
       bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent
       ">Submit Your Review</h1>
       <form className="space-y-4">

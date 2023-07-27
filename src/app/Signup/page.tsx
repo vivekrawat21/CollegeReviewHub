@@ -1,8 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import BackButton from "@/components/BackButton";
-import Student from "@/Assets/college.jpg";
-import Image from "next/image";
+import Images from "@/components/Images";
 
 const SignUp = () => {
   return (
@@ -65,18 +64,7 @@ const SignUp = () => {
         </div>
       </div>
 
-      <div className="lg:w-1/2 px-4 hidden lg:block  ">
-       <Image
-       src={Student}
-        alt="Student"
-        height={500}
-        width={500}
-        className="rounded-lg shadow-md
-        hover:shadow-xl transition duration-150 ease-in-out
-        "
-        />
-        
-      </div>
+    <Images />
     </div>
   );
 };

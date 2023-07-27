@@ -1,6 +1,8 @@
 import React from "react";
 import BackButton from "@/components/BackButton";
-
+// Go to Assets/college.jpg
+import Student from "@/Assets/college.jpg"
+import Image from "next/image";
 const Login = () => {
   return (
     <div className="flex flex-col lg:flex-row justify-center items-center h-[90vh] relative">
@@ -51,13 +53,17 @@ const Login = () => {
         </div>
       </div>
 
-      <div className="lg:w-1/2 px-4 hidden lg:block">
-        {/* Replace the src attribute with the URL of your desired image */}
-        <img
-          src="https://via.placeholder.com/400" // Replace this with the URL of your image
-          alt="Random Image"
-          className="rounded-lg"
+      <div className="lg:w-1/2 px-4 hidden lg:block  ">
+       <Image
+       src={Student}
+        alt="Student"
+        height={500}
+        width={500}
+        className="rounded-lg shadow-md
+        hover:shadow-xl transition duration-150 ease-in-out
+        "
         />
+        
       </div>
     </div>
   );

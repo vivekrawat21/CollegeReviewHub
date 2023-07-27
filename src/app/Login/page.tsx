@@ -1,6 +1,7 @@
 import React from "react";
 import BackButton from "@/components/BackButton";
 import Images from "@/components/Images";
+import Link from "next/link";
 const Login = () => {
   return (
     <div className="flex flex-col lg:flex-row justify-center items-center h-[90vh] relative">
@@ -48,6 +49,15 @@ const Login = () => {
               </button>
             </div>
           </form>
+          <div className="text-center mt-4">
+          <p className="text-gray-700 text-sm">
+            Don't have an account?
+            <Link href="/Signup"
+              className="text-slate-500 hover:text-slate-900 transition-colors duration-300 ease-in-out pl-2">
+                SignUp
+            </Link>
+          </p>
+        </div>
         </div>
       </div>
 

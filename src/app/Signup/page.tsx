@@ -56,7 +56,7 @@ const SignUp = () => {
           <p className="text-gray-700 text-sm">
             Already have an account?
             <Link href="/Login"
-              className="text-slate-500 hover:text-slate-900 transition-colors duration-300 ease-in-out">
+              className="text-slate-500 hover:text-slate-900 transition-colors duration-300 ease-in-out pl-2">
                 Login
             </Link>
           </p>

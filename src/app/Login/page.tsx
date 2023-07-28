@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React, { useState } from "react";
 import BackButton from "@/components/BackButton";
 import Images from "@/components/Images";
@@ -14,18 +14,14 @@ const Login = () => {
 
   const router = useRouter();
 
-  const handleLogIn = (e:any) => {
-    e.preventDefault();
+  const handleLogIn = async () => {
     try {
-      axios.post("/api/users/Login", user).then((response) => {
-        console.log(response);
-        router.push("/Review");
-      }).catch((error) => {
-        console.log(error);
-      });
+      const res = await axios.post("/api/users/Login", user);
+      console.log(res.data);
+      router.push("/Review");
     } catch (error) {
       console.log(error);
-    }      
+    }
   };
 
   return (
@@ -49,8 +45,8 @@ const Login = () => {
                 id="email"
                 type="email"
                 placeholder="email"
-                onChange={(e) => setUser({...user, email: e.target.value})}
-                />
+                onChange={(e) => setUser({ ...user, email: e.target.value })}
+              />
             </div>
             <div className="mb-6">
               <label
@@ -64,7 +60,7 @@ const Login = () => {
                 id="password"
                 type="password"
                 placeholder="Password"
-                onChange={(e) => setUser({...user, password: e.target.value})}
+                onChange={(e) => setUser({ ...user, password: e.target.value })}
               />
             </div>
             <div className="flex items-center justify-between">

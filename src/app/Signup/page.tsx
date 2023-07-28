@@ -6,7 +6,6 @@ import Images from "@/components/Images";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
-
 const SignUp = () => {
   const [user, setUser] = useState({
     username: "",

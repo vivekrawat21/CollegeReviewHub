@@ -6,6 +6,7 @@ import Images from "@/components/Images";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
+
 const SignUp = () => {
   const [user, setUser] = useState({
     username: "",
@@ -25,6 +26,7 @@ const SignUp = () => {
       console.log(error);
     }
   };
+  
   return (
     <div className="flex flex-col lg:flex-row justify-center items-center h-[90vh] relative">
       <div className="lg:w-1/2 px-4 mb-8">

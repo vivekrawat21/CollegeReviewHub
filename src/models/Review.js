@@ -1,12 +1,12 @@
 import mongoose from "mongoose";
 
 const reviewSchema = new mongoose.Schema({
-  heading: {
+  collegeName: {
     type: String,
     required: [true, "Please provide a heading"],
   },
 
-  description: {
+  review: {
     type: String,
     required: [true, "Please provide a description"],
   },

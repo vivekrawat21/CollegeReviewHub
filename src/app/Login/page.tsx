@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import BackButton from "@/components/BackButton";
 import Images from "@/components/Images";
 import Link from "next/link";
-import axios from "axios";
 import { useRouter } from "next/navigation";
 
 const Login = () => {
@@ -14,15 +13,22 @@ const Login = () => {
 
   const router = useRouter();
 
-  const handleLogIn = async () => {
-    try {
-      const res = await axios.post("/api/users/Login", user);
-      console.log(res.data);
-      router.push("/Review");
-    } catch (error) {
-      console.log(error);
-    }
-  };
+ const handleLogIn = () => {
+  fetch("http://localhost:3000/api/users/Login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(user),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      if (data.success) {
+        router.push("/Review");
+      }
+    });
+};
 
   return (
     <div className="flex flex-col lg:flex-row justify-center items-center h-[90vh] relative">

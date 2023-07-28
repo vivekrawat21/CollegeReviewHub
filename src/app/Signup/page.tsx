@@ -14,7 +14,8 @@ const SignUp = () => {
   });
   const router = useRouter();
 
-  const handleSignUp = () => {
+  const handleSignUp = (e:any) => {
+    e.preventDefault();
     try {
       axios.post("/api/users/Signup", user).then((response) => {
         console.log(response);

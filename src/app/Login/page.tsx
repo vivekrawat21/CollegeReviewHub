@@ -14,7 +14,8 @@ const Login = () => {
 
   const router = useRouter();
 
-  const handleLogIn = () => {
+  const handleLogIn = (e:any) => {
+    e.preventDefault();
     try {
       axios.post("/api/users/Login", user).then((response) => {
         console.log(response);

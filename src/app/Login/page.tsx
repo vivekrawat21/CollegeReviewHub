@@ -4,6 +4,7 @@ import BackButton from "@/components/BackButton";
 import Images from "@/components/Images";
 import Link from "next/link";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
   const [user, setUser] = useState({
@@ -11,10 +12,13 @@ const Login = () => {
     password: "",
   });
 
+  const router = useRouter();
+
   const handleLogIn = () => {
     try {
       axios.post("/api/users/Login", user).then((response) => {
         console.log(response);
+        router.push("/Review");
       });
     } catch (error) {
       console.log(error);

@@ -4,6 +4,7 @@ import Link from "next/link";
 import BackButton from "@/components/BackButton";
 import Images from "@/components/Images";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const SignUp = () => {
   const [user, setUser] = useState({
@@ -11,11 +12,13 @@ const SignUp = () => {
     email: "",
     password: "",
   });
+  const router = useRouter();
 
   const handleSignUp = () => {
     try {
       axios.post("/api/users/Signup", user).then((response) => {
         console.log(response);
+        router.push("/Review");
       });
     } catch (error) {
       console.log(error);

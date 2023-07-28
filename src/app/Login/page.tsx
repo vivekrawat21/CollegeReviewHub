@@ -88,7 +88,6 @@ const Login = () => {
           </div>
         </div>
       </div>
-
       <Images />
     </div>
   );

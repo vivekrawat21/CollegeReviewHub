@@ -1,9 +1,10 @@
-"use client"
+"use client";
 import BackButton from "@/components/BackButton";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { FaPlus } from "react-icons/fa";
 import axios from "axios";
+import { motion } from "framer-motion";
 
 interface Review {
   id: number;
@@ -16,19 +17,20 @@ const ReviewsPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
 
   useEffect(() => {
-    axios.get<{ reviews: Review[] }>("/api/Reviews") // Adjust the response data type based on your API response
+    axios
+      .get<{ reviews: Review[] }>("/api/Reviews")
       .then((response) => {
-        setReviews(response.data.reviews); // Assuming the response data is an object with a 'reviews' property containing the array of reviews.
+        setReviews(response.data.reviews);
       })
       .catch((error) => {
         console.error("Error fetching reviews:", error);
       });
   }, []);
 
-  const filteredReviews = reviews?.filter((review) =>
-  review.collegeName.toLowerCase().includes(searchTerm.toLowerCase())
-) || [];
-
+  const filteredReviews =
+    reviews?.filter((review) =>
+      review.collegeName.toLowerCase().includes(searchTerm.toLowerCase())
+    ) || [];
 
   return (
     <div className="container mx-auto px-4 py-8 min-h-screen relative">
@@ -42,17 +44,34 @@ const ReviewsPage: React.FC = () => {
           className="border border-gray-300 rounded-lg py-2 px-4"
         />
       </div>
-      <div className="grid gap-6 lg:grid-cols-3 md:grid-cols-2">
+      <motion.div
+        className="grid gap-6 lg:grid-cols-3 md:grid-cols-2"
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: { opacity: 0 },
+          visible: {
+            opacity: 1,
+            transition: {
+              staggerChildren: 1, 
+            },
+          },
+        }}
+      >
         {filteredReviews.map((review) => (
-          <div
+          <motion.div
             key={review.id}
             className="bg-white rounded-lg shadow-md p-6 h-60 flex flex-col justify-center hover:shadow-xl transition-shadow duration-300"
+            variants={{
+              hidden: { opacity: 0, y: 50 },
+              visible: { opacity: 1, y: 0 },             
+            }}
           >
             <h2 className="text-xl font-semibold mb-2">{review.collegeName}</h2>
             <p className="text-gray-600">{review.review}</p>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       <div className="fixed bottom-4 right-4">
         <Link href="ReviewSubmission">

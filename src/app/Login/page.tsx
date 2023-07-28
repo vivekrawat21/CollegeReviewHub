@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import BackButton from "@/components/BackButton";
 import Images from "@/components/Images";
@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 
 const Login = () => {
   const [user, setUser] = useState({
-    email: "",
+    username: "",
     password: "",
   });
 
@@ -36,19 +36,19 @@ const Login = () => {
             <div className="mb-4">
               <label
                 className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="email"
+                htmlFor="username"
               >
-                Email
+                Username
               </label>
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="email"
-                type="email"
-                placeholder="email"
-                onChange={(e) => setUser({ ...user, email: e.target.value })}
+                id="username"
+                type="text"
+                placeholder="Username"
+                onChange={(e) => setUser({ ...user, username: e.target.value })}
               />
             </div>
-            <div className="mb-6">
+            <div className="mb-4">
               <label
                 className="block text-gray-700 text-sm font-bold mb-2"
                 htmlFor="password"

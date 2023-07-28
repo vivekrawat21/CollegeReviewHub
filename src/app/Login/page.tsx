@@ -20,10 +20,12 @@ const Login = () => {
       axios.post("/api/users/Login", user).then((response) => {
         console.log(response);
         router.push("/Review");
+      }).catch((error) => {
+        console.log(error);
       });
     } catch (error) {
       console.log(error);
-    }
+    }      
   };
 
   return (

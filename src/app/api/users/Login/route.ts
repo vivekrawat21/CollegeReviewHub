@@ -31,6 +31,7 @@ export async function POST(request: NextRequest) {
       username: user.username,
       email: user.email,
     };
+
     const token = await jwt.sign(
       tokenData,
       process.env.TOKEN_SECRET! || "defaultSecret",
@@ -42,6 +43,7 @@ export async function POST(request: NextRequest) {
     const response = NextResponse.json({
       message: "Login successful",
       success: true,
+      token,
     });
 
     return response;

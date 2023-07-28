@@ -19,7 +19,7 @@ const SignUp = () => {
     try {
       axios.post("/api/users/Signup", user).then((response) => {
         console.log(response);
-        router.push("/Review");
+        router.push("/Login");
       });
     } catch (error) {
       console.log(error);

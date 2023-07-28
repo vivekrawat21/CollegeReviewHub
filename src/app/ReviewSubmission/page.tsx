@@ -1,23 +1,31 @@
+"use client";
 import BackButton from "@/components/BackButton";
-import React from "react";
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const ReviewSubmission = () => {
-  const [reviews, setReviews] = React.useState({
+  const [reviewData, setReviewData] = useState({
     collegeName: "",
     review: "",
   });
 
-  const handleReview = () => {
-    fetch("http://localhost:3000/api/review", {
+  const router = useRouter();
+
+  const handleReview = (e:any) => {
+    e.preventDefault();
+    fetch("http://localhost:3000/api/Reviews", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(reviews),
+      body: JSON.stringify(reviewData),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        if (data.success) {
+          router.push("/Review");
+        }
       });
   };
 
@@ -43,7 +51,7 @@ const ReviewSubmission = () => {
             className="py-2 px-4 border border-gray-300 rounded-lg focus:outline-none focus:border-black"
             placeholder="Enter the college name"
             onChange={(e) =>
-              setReviews({ ...reviews, collegeName: e.target.value })
+              setReviewData({ ...reviewData, collegeName: e.target.value })
             }
           />
         </div>
@@ -57,7 +65,9 @@ const ReviewSubmission = () => {
             rows={6}
             className="py-2 px-4 border border-gray-300 rounded-lg focus:outline-none focus:border-black"
             placeholder="Write your review here"
-            onChange={(e) => setReviews({ ...reviews, review: e.target.value })}
+            onChange={(e) =>
+              setReviewData({ ...reviewData, review: e.target.value })
+            }
           />
         </div>
         <div className="flex items-center justify-center">

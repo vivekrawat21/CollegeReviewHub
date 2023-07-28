@@ -50,7 +50,7 @@ const ReviewsPage: React.FC = () => {
             className="bg-white rounded-lg shadow-md p-6 h-60 flex flex-col justify-center hover:shadow-xl transition-shadow duration-300"
           >
             <h2 className="text-xl font-semibold mb-2">{review.collegeName}</h2>
-            <p className="text-gray-600">{review.review}</p>
+         <p className="text-gray-600">{review.review}</p>
           </div>
         ))}
       </div>

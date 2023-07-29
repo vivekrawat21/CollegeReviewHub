@@ -1,6 +1,7 @@
 "use client"
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion"; // Import Framer Motion
 
 type Props = {};
 
@@ -12,8 +13,29 @@ const Home = (props: Props) => {
     setToken(currentToken);
   }, []);
 
+  // Define animations
+  const containerVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
+  const buttonVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.5, delay: 0.2 } },
+  };
+
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.2 } },
+  };
+
   return (
-    <div className="flex flex-col items-center lg:flex-row lg:justify-between lg:h-[80vh] lg:mt-16 px-4  md:px-16 lg:px-24 mt-10">
+    <motion.div
+      className="flex flex-col items-center lg:flex-row lg:justify-between lg:h-[80vh] lg:mt-16 px-4  md:px-16 lg:px-24 mt-10"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
       <div className="lg:w-1/2 lg:flex lg:flex-col lg:items-start lg:justify-center lg:pr-8">
         <h1 className="text-4xl font-bold mb-4 sm:mb-6">
           Welcome to
@@ -28,27 +50,34 @@ const Home = (props: Props) => {
 
         {token ? (
           <Link href="/Review">
-            <button className="bg-slate-950 text-white px-6 py-3 rounded-lg font-bold hover:bg-slate-700 mb-6">
+            <motion.button
+              className="bg-slate-950 text-white px-6 py-3 rounded-lg font-bold hover:bg-slate-700 mb-6"
+              variants={buttonVariants}
+            >
               Review
-            </button>
+            </motion.button>
           </Link>
         ) : (
           <Link href="/Signup">
-            <button className="bg-slate-950 text-white px-6 py-3 rounded-lg font-bold hover:bg-slate-700 mb-6">
+            <motion.button
+              className="bg-slate-950 text-white px-6 py-3 rounded-lg font-bold hover:bg-slate-700 mb-6"
+              variants={buttonVariants}
+            >
               Get Started
-            </button>
+            </motion.button>
           </Link>
         )}
       </div>
 
       <div className="lg:w-1/2">
-        <img
+        <motion.img
           src="https://images.unsplash.com/photo-1535982330050-f1c2fb79ff78?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y29sbGVnZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=1400&q=60"
           alt="College"
           className="w-full h-auto rounded-lg"
+          variants={imageVariants}
         />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

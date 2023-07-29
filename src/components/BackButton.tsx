@@ -1,23 +1,41 @@
-import React from 'react'
-import Link from 'next/link'
+import React from "react";
+import Link from "next/link";
+import { motion } from "framer-motion"; 
+import { FiArrowLeft } from "react-icons/fi";
 
 type Props = {
-  link: string; 
-}
+  link: string;
+};
 
 const BackButton = ({ link }: Props) => {
+  const iconVariants = {
+    hidden: { opacity: 0, x: -10 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.3 } },
+  };
+
+  const buttonVariants = {
+    hidden: { opacity: 0, x: -10 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.3, delay: 0.1 } },
+  };
+
   return (
     <div className="absolute top-0 left-0 mt-4 ml-4">
       <Link href={link}>
-        <button
-          className="bg-slate-950 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        <motion.button
+          className="font-light py-2 px-4 rounded flex items-center"
           type="button"
+          initial="hidden"
+          animate="visible"
+          variants={buttonVariants}
         >
+          <motion.span variants={iconVariants}>
+            <FiArrowLeft className="mr-2" />
+          </motion.span>
           Back
-        </button>
+        </motion.button>
       </Link>
     </div>
-  )
-}
+  );
+};
 
-export default BackButton
+export default BackButton;

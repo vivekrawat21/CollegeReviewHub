@@ -1,12 +1,15 @@
 import React from 'react'
 import Student from "@/Assets/college.jpg"
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 type Props = {}
 
 const Images = (props: Props) => {
   return (
-    <div className="lg:w-1/2 px-4 hidden lg:block  ">
+    <motion.div className="lg:w-1/2 px-4 hidden lg:block"
+    whileHover={{ scale: 0.98 }}
+    >
     <Image
     src={Student}
      alt="Student"
@@ -16,7 +19,7 @@ const Images = (props: Props) => {
      hover:shadow-xl transition duration-150 ease-in-out"
      />
      
-   </div>
+   </motion.div>
   )
 }
 

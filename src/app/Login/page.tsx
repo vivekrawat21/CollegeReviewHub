@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { motion } from "framer-motion"; // Import Framer Motion
 import BackButton from "@/components/BackButton";
 import Images from "@/components/Images";
 import Link from "next/link";
@@ -43,11 +44,24 @@ const Login = () => {
       });
   };
 
+  // Define animations
+  const containerVariants = {
+    hidden: { opacity: 0, y: -50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
-    <div className="flex flex-col lg:flex-row justify-center items-center h-[90vh] relative">
+    <motion.div
+      className="flex flex-col lg:flex-row justify-center items-center h-[90vh] relative"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
       <div className="lg:w-1/2 px-4 mb-8">
         <BackButton link="/" />
-        <div className="bg-white shadow-md rounded px-8 pt-6 pb-8">
+        <motion.div
+          className="bg-white shadow-md rounded px-8 pt-6 pb-8"
+        >
           <h1 className="text-4xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent">
             Login
           </h1>
@@ -83,15 +97,16 @@ const Login = () => {
               />
             </div>
             <div className="flex items-center justify-between">
-          
               {!loading ? (
-                <button
+                <motion.button
                   className="bg-slate-950 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
                   type="button"
                   onClick={handleLogIn}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   Login
-                </button>
+                </motion.button>
               ) : (
                 <LoadingSpinner />
               )}
@@ -108,12 +123,11 @@ const Login = () => {
               </Link>
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
       <Images />
-    </div>
+    </motion.div>
   );
 };
 
 export default Login;
-

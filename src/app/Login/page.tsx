@@ -13,25 +13,24 @@ const Login = () => {
 
   const router = useRouter();
 
- const handleLogIn = () => {
-  fetch("http://localhost:3000/api/users/Login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-
-    body: JSON.stringify(user),
-    
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      if (data.success) {
-        router.push("/Review");
-      }
-    });
-};
-
+  const handleLogIn = () => {
+    fetch("http://localhost:3000/api/users/Login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.success) {
+          localStorage.setItem("token", data.token); 
+          router.push("/Review");
+        }
+      });
+  };
+  
   return (
     <div className="flex flex-col lg:flex-row justify-center items-center h-[90vh] relative">
       <div className="lg:w-1/2 px-4 mb-8">

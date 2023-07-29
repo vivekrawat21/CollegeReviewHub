@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { motion } from "framer-motion"; // Import Framer Motion
+import { motion } from "framer-motion"; 
 import BackButton from "@/components/BackButton";
 import Images from "@/components/Images";
 import Link from "next/link";

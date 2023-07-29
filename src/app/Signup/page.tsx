@@ -5,6 +5,7 @@ import BackButton from "@/components/BackButton";
 import Images from "@/components/Images";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import LoadingSpinner from "@/components/LoadingSpinner";
 
 const SignUp = () => {
   const [user, setUser] = useState({
@@ -12,20 +13,24 @@ const SignUp = () => {
     email: "",
     password: "",
   });
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  const handleSignUp = (e:any) => {
+  const handleSignUp = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    setLoading(true);
+
     try {
-      axios.post("/api/users/Signup", user).then((response) => {
-        console.log(response);
-        router.push("/Login");
-      });
+      const response = await axios.post("/api/users/Signup", user);
+      console.log(response);
+      setLoading(false);
+      router.push("/Login");
     } catch (error) {
       console.log(error);
+      setLoading(false);
     }
   };
-  
+
   return (
     <div className="flex flex-col lg:flex-row justify-center items-center h-[90vh] relative">
       <div className="lg:w-1/2 px-4 mb-8">
@@ -81,11 +86,16 @@ const SignUp = () => {
               />
             </div>
             <div className="flex items-center justify-center">
-              <button className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition-colors duration-300 ease-in-out"
-              onClick={handleSignUp}
-              >
-                Sign Up
-              </button>
+              {!loading ? (
+                <button
+                  className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition-colors duration-300 ease-in-out"
+                  onClick={handleSignUp}
+                >
+                  Sign Up
+                </button>
+              ) : (
+                <LoadingSpinner />
+              )}
             </div>
           </form>
           <div className="text-center mt-4">

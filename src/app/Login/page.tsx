@@ -4,6 +4,7 @@ import BackButton from "@/components/BackButton";
 import Images from "@/components/Images";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import LoadingSpinner from "@/components/LoadingSpinner";
 
 const Login = () => {
   const [user, setUser] = useState({
@@ -11,10 +12,14 @@ const Login = () => {
     password: "",
   });
 
+  const [loading, setLoading] = useState(false); 
+
   const router = useRouter();
 
-  const handleLogIn = (e:any) => {
+  const handleLogIn = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    setLoading(true);
+
     fetch("http://localhost:3000/api/users/Login", {
       method: "POST",
       headers: {
@@ -26,12 +31,18 @@ const Login = () => {
       .then((data) => {
         console.log(data);
         if (data.success) {
-          localStorage.setItem("token", data.token); 
+          localStorage.setItem("token", data.token);
           router.push("/Review");
+        } else {
+          setLoading(false); 
         }
+      })
+      .catch((error) => {
+        setLoading(false); 
+        console.error("Error during login:", error);
       });
   };
-  
+
   return (
     <div className="flex flex-col lg:flex-row justify-center items-center h-[90vh] relative">
       <div className="lg:w-1/2 px-4 mb-8">
@@ -72,13 +83,18 @@ const Login = () => {
               />
             </div>
             <div className="flex items-center justify-between">
-              <button
-                className="bg-slate-950 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
-                type="button"
-                onClick={handleLogIn}
-              >
-                Login
-              </button>
+          
+              {!loading ? (
+                <button
+                  className="bg-slate-950 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
+                  type="button"
+                  onClick={handleLogIn}
+                >
+                  Login
+                </button>
+              ) : (
+                <LoadingSpinner />
+              )}
             </div>
           </form>
           <div className="text-center mt-4">
@@ -100,3 +116,4 @@ const Login = () => {
 };
 
 export default Login;
+

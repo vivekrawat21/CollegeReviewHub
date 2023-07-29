@@ -9,7 +9,6 @@ const Home = (props: Props) => {
 
   useEffect(() => {
     const currentToken = localStorage.getItem("token");
-    console.log(currentToken);
     setToken(currentToken);
   }, []);
 

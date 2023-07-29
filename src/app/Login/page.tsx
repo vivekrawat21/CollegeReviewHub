@@ -13,7 +13,8 @@ const Login = () => {
 
   const router = useRouter();
 
-  const handleLogIn = () => {
+  const handleLogIn = (e:any) => {
+    e.preventDefault();
     fetch("http://localhost:3000/api/users/Login", {
       method: "POST",
       headers: {

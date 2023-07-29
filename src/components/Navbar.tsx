@@ -1,32 +1,40 @@
-import React from "react";
+"use client"
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Cookies from "js-cookie";
 
 type Props = {};
 
 const Navbar = (props: Props) => {
+  const [token, setToken] = useState<any>(null);
+
+  useEffect(() => {
+    const currentToken = Cookies.get("token");
+    console.log(currentToken); 
+    setToken(currentToken); 
+  }, []);
+
   return (
-    <nav
-      className="flex items-center justify-between px-8 py-4
-    bg-gradient-to-r from-purple-200  to-blue-400 text-white
-    "
-    >
+    <nav className="flex items-center justify-between px-8 py-4">
       <div className="flex items-center bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent">
         <Link href="/" className="text-2xl font-bold">
-         ReviewHub
+          ReviewHub
         </Link>
       </div>
 
-      <ul className="flex space-x-4">
+      <ul className="flex space-x-4 text-sm font-semibold">
         <li>
-          <Link href="/" className="transition duration-300 ease-in-out hover:text-red-100">
+          <Link href="/" className="transition duration-300 ease-in-out hover:text-gray-700">
             Home
           </Link>
         </li>
-        <li>
-          <Link href="/Review" className="transition duration-300 ease-in-out hover:text-red-100">
-            Reviews
-          </Link>
-        </li>
+        {!token && (
+          <li>
+            <Link href="/Review" className="transition duration-300 ease-in-out hover:text-gray-700">
+              Reviews
+            </Link>
+          </li>
+        )}
       </ul>
     </nav>
   );

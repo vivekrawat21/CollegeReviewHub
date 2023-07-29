@@ -1,7 +1,6 @@
 "use client"
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import Cookies from "js-cookie";
 
 type Props = {};
 
@@ -9,9 +8,8 @@ const Navbar = (props: Props) => {
   const [token, setToken] = useState<any>(null);
 
   useEffect(() => {
-    const currentToken = Cookies.get("token");
-    console.log(currentToken); 
-    setToken(currentToken); 
+    const currentToken = localStorage.getItem("token");
+    setToken(currentToken);
   }, []);
 
   return (
@@ -28,7 +26,7 @@ const Navbar = (props: Props) => {
             Home
           </Link>
         </li>
-        {!token && (
+        {token && (
           <li>
             <Link href="/Review" className="transition duration-300 ease-in-out hover:text-gray-700">
               Reviews

@@ -1,9 +1,18 @@
+"use client"
 import Link from "next/link";
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 type Props = {};
 
 const Home = (props: Props) => {
+  const [token, setToken] = useState<any>(null);
+
+  useEffect(() => {
+    const currentToken = localStorage.getItem("token");
+    console.log(currentToken);
+    setToken(currentToken);
+  }, []);
+
   return (
     <div className="flex flex-col items-center lg:flex-row lg:justify-between lg:h-[80vh] lg:mt-16 px-4  md:px-16 lg:px-24 mt-10">
       <div className="lg:w-1/2 lg:flex lg:flex-col lg:items-start lg:justify-center lg:pr-8">
@@ -17,11 +26,20 @@ const Home = (props: Props) => {
           Share and read honest reviews about colleges from students like you.
           Make informed decisions about your educational future.
         </p>
-        <Link href="/Signup">
-          <button className="bg-slate-950 text-white px-6 py-3 rounded-lg font-bold hover:bg-slate-700 mb-6">
-            Get Started
-          </button>
-        </Link>
+
+        {token ? (
+          <Link href="/Review">
+            <button className="bg-slate-950 text-white px-6 py-3 rounded-lg font-bold hover:bg-slate-700 mb-6">
+              Review
+            </button>
+          </Link>
+        ) : (
+          <Link href="/Signup">
+            <button className="bg-slate-950 text-white px-6 py-3 rounded-lg font-bold hover:bg-slate-700 mb-6">
+              Get Started
+            </button>
+          </Link>
+        )}
       </div>
 
       <div className="lg:w-1/2">

@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion"; // Import Framer Motion
+import { motion } from "framer-motion"; 
 
 type Props = {};
 
@@ -13,7 +13,6 @@ const Home = (props: Props) => {
     setToken(currentToken);
   }, []);
 
-  // Define animations
   const containerVariants = {
     hidden: { opacity: 0, y: -20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },

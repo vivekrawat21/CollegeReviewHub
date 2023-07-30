@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
 import LoadingSpinner from "./LoadingSpinner";
 
 type Props = {};
@@ -27,18 +27,13 @@ const Navbar = (props: Props) => {
     }, 1500);
   };
 
-  // Define animations
   const containerVariants = {
     hidden: { opacity: 0, y: -20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-    >
+    <motion.div initial="hidden" animate="visible" variants={containerVariants}>
       <nav className="flex items-center justify-between px-8 py-4">
         <motion.div
           className="flex items-center bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent"
@@ -66,8 +61,21 @@ const Navbar = (props: Props) => {
                 </Link>
               </motion.li>
               <motion.li
+                className=""
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  href="/Review"
+                  className="transition duration-300 ease-in-out hover:text-gray-700 pr-8"
+                >
+                  Dashboard
+                </Link>
+              </motion.li>
+              <motion.li
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="ml-8"
               >
                 {!loading ? (
                   <button

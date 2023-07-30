@@ -27,6 +27,11 @@ const ReviewsPage: React.FC = () => {
       });
   }, []);
 
+
+  // Provide code for PUT and DELETE Method
+
+  
+
   const filteredReviews =
     reviews?.filter((review) =>
       review.collegeName.toLowerCase().includes(searchTerm.toLowerCase())

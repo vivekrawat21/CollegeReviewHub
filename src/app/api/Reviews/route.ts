@@ -43,3 +43,48 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
+
+export async function PUT(request: NextRequest) {
+  try {
+    const reqBody = await request.json();
+    const { id, collegeName, review } = reqBody;
+
+    const updatedReview = await Review.findByIdAndUpdate(
+      id,
+      {
+        collegeName,
+        review,
+      },
+      { new: true }
+    );
+
+    const response = NextResponse.json({
+      message: "Review updated successfully",
+      success: true,
+      review: updatedReview,
+    });
+
+    return response;
+  } catch (error: any) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+}
+
+export async function DELETE(request: NextRequest) {
+  try {
+    const reqBody = await request.json();
+    const { id } = reqBody;
+
+    const deletedReview = await Review.findByIdAndDelete(id);
+
+    const response = NextResponse.json({
+      message: "Review deleted successfully",
+      success: true,
+      review: deletedReview,
+    });
+
+    return response;
+  } catch (error: any) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+}

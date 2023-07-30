@@ -10,11 +10,10 @@ const reviewSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please provide a description"],
   },
-  // user: {
-  //   type: mongoose.Schema.Types.ObjectId,
-  //   ref: "users",
-  //   required: true,
-  // },
+  users: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
 
 const Review =

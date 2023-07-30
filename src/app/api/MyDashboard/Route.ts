@@ -7,13 +7,14 @@ connectToDB();
 export async function PUT(request: NextRequest) {
   try {
     const reqBody = await request.json();
-    const { _id, collegeName, review } = reqBody;
+    const { _id, collegeName, review, users } = reqBody;
 
     const reviews = await Review.findByIdAndUpdate(
       { _id },
       {
         collegeName,
         review,
+        users,
       }
     );
 
@@ -53,9 +54,9 @@ export async function DELETE(request: NextRequest) {
 export async function GET(request: NextRequest) {
   try {
     const reqBody = await request.json();
-    const { _id } = reqBody;
+    const { users } = reqBody;
     const reviews = await Review.findOne({
-      _id,
+      users,
     });
     const response = NextResponse.json({
       message: "Review fetched successfully",

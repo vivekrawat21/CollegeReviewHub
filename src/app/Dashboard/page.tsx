@@ -4,7 +4,9 @@ type Props = {}
 
 const page = (props: Props) => {
   return (
-    <div></div>
+    <div className='min-h-screen'> 
+
+    </div>
   )
 }
 

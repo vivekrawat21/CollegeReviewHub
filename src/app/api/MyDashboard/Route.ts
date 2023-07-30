@@ -55,11 +55,12 @@ export async function GET(request: NextRequest) {
   try {
     const reqBody = await request.json();
     const { users } = reqBody;
-    const reviews = await Review.findOne({
+    const reviews = await Review.find({
       users,
     });
+
     const response = NextResponse.json({
-      message: "Review fetched successfully",
+      message: "Reviews fetched successfully",
       success: true,
       reviews,
     });

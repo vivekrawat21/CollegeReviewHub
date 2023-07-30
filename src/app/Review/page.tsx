@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { FaPlus } from "react-icons/fa";
 import axios from "axios";
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
 
 interface Review {
   id: number;
@@ -27,9 +27,10 @@ const ReviewsPage: React.FC = () => {
       });
   }, []);
 
-  const filteredReviews = reviews?.filter((review) =>
-    review.collegeName.toLowerCase().includes(searchTerm.toLowerCase())
-  ) || [];
+  const filteredReviews =
+    reviews?.filter((review) =>
+      review.collegeName.toLowerCase().includes(searchTerm.toLowerCase())
+    ) || [];
 
   return (
     <div className="container mx-auto px-4 py-8 min-h-screen relative">
@@ -50,8 +51,8 @@ const ReviewsPage: React.FC = () => {
             className="bg-white rounded-lg shadow-md p-6 h-60 flex flex-col justify-center hover:shadow-xl transition-shadow duration-300"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -50 }} 
-            transition={{ duration: 0.5 }} 
+            exit={{ opacity: 0, y: -50 }}
+            transition={{ duration: 0.5 }}
           >
             <h2 className="text-xl font-semibold mb-2">{review.collegeName}</h2>
             <p className="text-gray-600">{review.review}</p>

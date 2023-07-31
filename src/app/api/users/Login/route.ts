@@ -40,11 +40,30 @@ export async function POST(request: NextRequest) {
       }
     );
 
-    const response = NextResponse.json({
-      message: "Login successful",
-      success: true,
-      token,
+    const response = NextResponse.json(
+      {
+        message: "Login successful",
+        success: true,
+        token,
+      },
+      { status: 200 }
+    );
+
+    response.cookies.set("token", token, {
+      httpOnly: true,
+      path: "/",
+      sameSite: "lax",
+      secure: true,
     });
+
+    response.cookies.set("user", JSON.stringify(tokenData), {
+      httpOnly: false,
+      path: "/",
+      sameSite: "lax",
+      secure: true,
+    });
+
+    console.log(response);
 
     return response;
   } catch (error: any) {

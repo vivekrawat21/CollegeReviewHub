@@ -3,6 +3,7 @@ import User from "@/models/User";
 import { NextRequest, NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
+import { setCookie } from "cookies-next";
 
 connectToDB();
 
@@ -48,20 +49,6 @@ export async function POST(request: NextRequest) {
       },
       { status: 200 }
     );
-
-    response.cookies.set("token", token, {
-      httpOnly: true,
-      path: "/",
-      sameSite: "lax",
-      secure: true,
-    });
-
-    response.cookies.set("user", JSON.stringify(tokenData), {
-      httpOnly: false,
-      path: "/",
-      sameSite: "lax",
-      secure: true,
-    });
 
     console.log(response);
 

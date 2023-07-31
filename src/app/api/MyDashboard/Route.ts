@@ -20,10 +20,15 @@ export async function PUT(request: NextRequest) {
 
     console.log(reviews);
 
-    const response = NextResponse.json({
-      message: "Review updated successfully",
-      success: true,
-    });
+    const response = NextResponse.json(
+      {
+        message: "Review updated successfully",
+        success: true,
+      },
+      {
+        status: 200,
+      }
+    );
 
     return response;
   } catch (error: any) {
@@ -40,10 +45,15 @@ export async function DELETE(request: NextRequest) {
 
     console.log(reviews);
 
-    const response = NextResponse.json({
-      message: "Review deleted successfully",
-      success: true,
-    });
+    const response = NextResponse.json(
+      {
+        message: "Review deleted successfully",
+        success: true,
+      },
+      {
+        status: 200,
+      }
+    );
 
     return response;
   } catch (error: any) {
@@ -59,11 +69,16 @@ export async function GET(request: NextRequest) {
       users,
     });
 
-    const response = NextResponse.json({
-      message: "Reviews fetched successfully",
-      success: true,
-      reviews,
-    });
+    const response = NextResponse.json(
+      {
+        message: "Reviews fetched successfully",
+        success: true,
+        reviews,
+      },
+      {
+        status: 200,
+      }
+    );
 
     return response;
   } catch (error: any) {

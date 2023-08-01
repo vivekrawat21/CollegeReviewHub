@@ -46,6 +46,7 @@ export async function POST(request: NextRequest) {
         message: "Login successful",
         success: true,
         token,
+        userId: user._id,
       },
       { status: 200 }
     );

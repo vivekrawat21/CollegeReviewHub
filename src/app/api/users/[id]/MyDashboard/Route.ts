@@ -6,13 +6,14 @@ connectToDB();
 
 export async function GET(request: NextRequest, { params }: any) {
   try {
-    const Reviews = await Review.find({ users: params.id });
+    const Reviews = await Review.find({ users: params._id });
 
     const response = NextResponse.json({
       message: "Review fetched successfully!",
       success: true,
       Reviews,
     });
+    console.log(response);
 
     return response;
   } catch (error: any) {

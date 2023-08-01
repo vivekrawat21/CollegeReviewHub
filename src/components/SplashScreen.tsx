@@ -15,7 +15,7 @@ const SplashScreen: React.FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSplash1(false);
-    }, 3000);
+    }, 2000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -55,12 +55,12 @@ const SplashScreen: React.FC = () => {
                 transition={{ duration: 0.5 }}
               >
                 <h2
-                  className="text-xl font-semibold mb-2"
-                  style={{ background: "#e3e3e3", width: "80%" }}
+                  className="text-xl font-semibold mb-2 bg-gray-300  h-4"
+                  style={{  width: "70%",borderRadius:"3px" }}
                 ></h2>
                 <p
-                  className="text-gray-600"
-                  style={{ background: "#e3e3e3", width: "60%" }}
+                  className="bg-gray-300 h-4 mt-2"
+                  style={{ width: "30%" ,borderRadius:"3px"}}
                 ></p>
               </motion.div>
             ))}

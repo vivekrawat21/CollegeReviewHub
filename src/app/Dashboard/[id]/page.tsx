@@ -1,10 +1,9 @@
 "use client";
 import BackButton from "@/components/BackButton";
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FaPlus } from "react-icons/fa";
-import axios from "axios";
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
 
 interface Review {
   id: number;
@@ -12,21 +11,29 @@ interface Review {
   review: string;
 }
 
-const ReviewsPage: React.FC = () => {
+const ReviewsPage: React.FC = ({ params }: any) => {
   const [reviews, setReviews] = useState<Review[]>([]);
+  const userId = localStorage.getItem("userId");
 
-  useEffect(() => {
-    axios
-      .get<{ reviews: Review[] }>("/api/MyDashboard")
-      .then((response) => {
-        setReviews(response.data.reviews);
-        console.log(response.data.reviews)
-      })
-      .catch((error) => {
-        console.error("Error fetching reviews:", error);
-      });
+  const fetchReviews = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:3000/api/reviews?userId=${userId}`
+      );
+      if (response.ok) {
+        const data = await response.json();
+        setReviews(data.reviews);
+      } else {
+        console.error("Error fetching reviews");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+  React.useEffect(() => {
+    fetchReviews();
   }, []);
-
 
   return (
     <div className="container mx-auto px-4 py-8 min-h-screen relative">
@@ -38,8 +45,8 @@ const ReviewsPage: React.FC = () => {
             className="bg-white rounded-lg shadow-md p-6 h-60 flex flex-col justify-center hover:shadow-xl transition-shadow duration-300"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -50 }} 
-            transition={{ duration: 0.5 }} 
+            exit={{ opacity: 0, y: -50 }}
+            transition={{ duration: 0.5 }}
           >
             <h2 className="text-xl font-semibold mb-2">{review.collegeName}</h2>
             <p className="text-gray-600">{review.review}</p>

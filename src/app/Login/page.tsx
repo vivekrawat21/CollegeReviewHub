@@ -33,6 +33,7 @@ const Login = () => {
         console.log(data);
         if (data.success) {
           localStorage.setItem("token", data.token);
+          localStorage.setItem("userId", data.userId);
           router.push("/Review");
         } else {
           setLoading(false); 

@@ -3,7 +3,6 @@ import User from "@/models/User";
 import { NextRequest, NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { setCookie } from "cookies-next";
 
 connectToDB();
 
@@ -20,6 +19,7 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
+
     console.log("user exists");
 
     const validPassword = await bcryptjs.compare(password, user.password);

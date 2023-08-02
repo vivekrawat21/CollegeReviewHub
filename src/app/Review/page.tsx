@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import BackButton from "@/components/BackButton";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
@@ -23,6 +23,7 @@ const ReviewsPage: React.FC = () => {
       .get<{ reviews: Review[] }>("/api/Reviews")
       .then((response) => {
         setReviews(response.data.reviews);
+        console.log(response.data);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -31,9 +32,10 @@ const ReviewsPage: React.FC = () => {
       });
   }, []);
 
-  const filteredReviews = reviews?.filter((review) =>
-    review.collegeName.toLowerCase().includes(searchTerm.toLowerCase())
-  ) || [];
+  const filteredReviews =
+    reviews?.filter((review) =>
+      review.collegeName.toLowerCase().includes(searchTerm.toLowerCase())
+    ) || [];
 
   return (
     <div className="container mx-auto px-4 py-8 min-h-screen relative">
@@ -56,12 +58,19 @@ const ReviewsPage: React.FC = () => {
             {filteredReviews.map((review) => (
               <motion.div
                 key={review.id}
-                className="bg-white rounded-lg shadow-md p-6 h-60 flex flex-col justify-center hover:shadow-xl transition-shadow duration-300"
+                className="bg-white rounded-lg shadow-md p-6 h-60 flex flex-col justify-center hover:shadow-xl transition-shadow duration-300 relative"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -50 }}
                 transition={{ duration: 0.5 }}
               >
+                <h4
+                  className="absolute top-4 right-4 font-medium bg-gray-100 px-4 py-2 rounded shadow-md hover:shadow-xl  transition-shadow duration-300 ease-in-out
+                "
+                >
+                  Name
+                </h4>
+
                 <h2 className="text-xl font-semibold mb-2">
                   {review.collegeName}
                 </h2>

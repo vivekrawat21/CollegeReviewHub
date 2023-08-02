@@ -1,5 +1,4 @@
-import mongoose from "mongoose";
-import { Schema } from "mongoose";
+const mongoose = require("mongoose");
 
 const reviewSchema = new mongoose.Schema({
   collegeName: {
@@ -11,9 +10,10 @@ const reviewSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please provide a description"],
   },
+
   user: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
+    type: mongoose.Types.ObjectId,
+    ref: "Users",
   },
 });
 

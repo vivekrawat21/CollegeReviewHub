@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import LoadingSpinner from "./LoadingSpinner";
+import axios from "axios";
 
 type Props = {};
 
@@ -17,14 +18,19 @@ const Navbar = (props: Props) => {
     setToken(currentToken);
   }, []);
 
-  const handleLogOut = () => {
+  const handleLogOut = async () => {
     setLoading(true);
-    localStorage.removeItem("token");
+    try {
+      await axios.get("/api/users/Logout");
+      localStorage.removeItem("token");
 
-    setTimeout(() => {
-      setLoading(false);
-      router.push("/Login");
-    }, 1500);
+      setTimeout(() => {
+        setLoading(false);
+        router.push("/Login");
+      }, 1500);
+    } catch (error: any) {
+      console.log(error.message);
+    }
   };
 
   const containerVariants = {

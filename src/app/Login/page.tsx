@@ -32,6 +32,7 @@ const Login = () => {
       .then((data) => {
         console.log(data);
         if (data.success) {
+          localStorage.setItem("token", data.token);
           router.push("/Review");
         } else {
           setLoading(false); 
@@ -43,7 +44,6 @@ const Login = () => {
       });
   };
 
-  // Define animations
   const containerVariants = {
     hidden: { opacity: 0, y: -50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },

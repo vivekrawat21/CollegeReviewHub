@@ -19,6 +19,24 @@ const AuthProvider = ({ children }) => {
     localStorage.setItem("token", token);
   };
 
+  function getCookies() {
+    const cookies = document.cookie;
+
+    const cookieArray = cookies.split(";");
+
+    const cookieObject = {};
+
+    for (const cookie of cookieArray) {
+      const [name, value] = cookie.trim().split("=");
+      cookieObject[name] = decodeURIComponent(value);
+    }
+
+    return cookieObject;
+  }
+
+  const extractedCookies = getCookies();
+  console.log(extractedCookies);
+
   const logout = () => {
     setToken(null);
     localStorage.removeItem("token");

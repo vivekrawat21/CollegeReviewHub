@@ -45,13 +45,15 @@ export async function POST(request: NextRequest) {
       {
         message: "Login successful",
         success: true,
-        token,
-        userId: user._id,
       },
       { status: 200 }
     );
 
     console.log(response);
+
+    response.cookies.set("token", token, {
+      httpOnly: true,
+    });
 
     return response;
   } catch (error: any) {

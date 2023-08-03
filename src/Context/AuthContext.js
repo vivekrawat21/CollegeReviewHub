@@ -35,7 +35,7 @@ const AuthProvider = ({ children }) => {
   }
 
   const extractedCookies = getCookies();
-  console.log(extractedCookies);
+  // console.log(extractedCookies);
 
   const logout = () => {
     setToken(null);

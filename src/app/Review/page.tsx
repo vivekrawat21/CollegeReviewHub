@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import SplashScreen from "@/components/SplashScreen";
 
 interface Review {
-  id: number;
+  _id: number;
   collegeName: string;
   review: string;
 }
@@ -57,7 +57,7 @@ const ReviewsPage: React.FC = () => {
           <div className="grid gap-6 lg:grid-cols-3 md:grid-cols-2">
             {filteredReviews.map((review) => (
               <motion.div
-                key={review.id}
+                key={review._id}
                 className="bg-white rounded-lg shadow-md p-6 h-60 flex flex-col justify-center hover:shadow-xl transition-shadow duration-300 relative"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}

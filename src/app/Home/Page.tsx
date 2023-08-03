@@ -1,12 +1,25 @@
-"use client"
+"use client";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
+import LoadingSpinner from "@/components/LoadingSpinner";
 
 type Props = {};
 
 const Home = (props: Props) => {
   const [token, setToken] = useState<any>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+  const router = useRouter();
+
+  const handleReview = () => {
+    setLoading(true);
+
+    setTimeout(() => {
+      setLoading(false);
+      router.push("/Review");
+    }, 1500);
+  };
 
   useEffect(() => {
     const currentToken = localStorage.getItem("token");
@@ -25,7 +38,11 @@ const Home = (props: Props) => {
 
   const imageVariants = {
     hidden: { opacity: 0, scale: 0.9 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.5, delay: 0.2 } },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.5, delay: 0.2 },
+    },
   };
 
   return (
@@ -48,14 +65,19 @@ const Home = (props: Props) => {
         </p>
 
         {token ? (
-          <Link href="/Review">
-            <motion.button
-              className="bg-slate-950 text-white px-6 py-3 rounded-lg font-bold hover:bg-slate-700 mb-6"
-              variants={buttonVariants}
-            >
-              Review
-            </motion.button>
-          </Link>
+          <>
+            {!loading ? (
+              <motion.button
+                className="bg-slate-950 text-white px-6 py-3 rounded-lg font-bold hover:bg-slate-700 mb-6"
+                variants={buttonVariants}
+                onClick={handleReview}
+              >
+                Review
+              </motion.button>
+            ) : (
+              <LoadingSpinner />
+            )}
+          </>
         ) : (
           <Link href="/Signup">
             <motion.button

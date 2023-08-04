@@ -18,7 +18,7 @@ const ReviewsPage: React.FC = ({ params }: any) => {
   const fetchReviews = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/reviews?userId=${userId}`
+        `http://localhost:3000/api/users/{params}/MyDashboard`
       );
       if (response.ok) {
         const data = await response.json();
@@ -34,6 +34,8 @@ const ReviewsPage: React.FC = ({ params }: any) => {
   React.useEffect(() => {
     fetchReviews();
   }, []);
+
+  console.log(params)
 
   return (
     <div className="container mx-auto px-4 py-8 min-h-screen relative">

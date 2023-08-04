@@ -32,6 +32,7 @@ const ReviewsPage: React.FC = () => {
       });
   }, []);
 
+
   const filteredReviews =
     reviews?.filter((review) =>
       review.collegeName.toLowerCase().includes(searchTerm.toLowerCase())

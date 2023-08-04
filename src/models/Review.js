@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const { Schema } = mongoose;
 
 const reviewSchema = new mongoose.Schema({
   collegeName: {
@@ -12,7 +11,7 @@ const reviewSchema = new mongoose.Schema({
     required: [true, "Please provide a description"],
   },
   user: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "Users",
   },
 });

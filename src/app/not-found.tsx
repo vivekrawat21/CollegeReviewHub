@@ -10,7 +10,7 @@ const NotFound = () => {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-4xl font-bold mb-4"
+        className="text-4xl font-bold mb-4 animate-pulse"
       >
         404 - Page Not Found
       </motion.h1>
@@ -26,7 +26,7 @@ const NotFound = () => {
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="px-4 py-2 bg-blue-500 text-white rounded"
+          className="px-4 py-2 bg-black text-white rounded font-bold"
         >
           Home
         </motion.button>

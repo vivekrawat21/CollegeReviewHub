@@ -1,11 +1,6 @@
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
-  id: {
-    type: String,
-    required: true,
-  },
-
   username: {
     type: String,
     required: [true, "Please provide a username"],
@@ -22,6 +17,6 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-const User = mongoose.models.users || mongoose.model("Users", userSchema);
+const User = mongoose.models.users || mongoose.model("User", userSchema);
 
 export default User;

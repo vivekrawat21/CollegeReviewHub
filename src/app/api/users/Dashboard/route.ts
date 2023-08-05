@@ -4,9 +4,18 @@ import { NextRequest, NextResponse } from "next/server";
 
 connectToDB();
 
-export async function GET(request: NextRequest, { params }: any) {
+export async function GET(request: NextRequest) {
   try {
-    const Reviews = await Review.find({ users: params._id });
+    const loggedInUserId = localStorage.getItem("id");
+
+    if (!loggedInUserId) {
+      return NextResponse.json(
+        { error: "User not logged in or userId not found in localStorage" },
+        { status: 401 }
+      );
+    }
+
+    const Reviews = await Review.find({ _id: loggedInUserId });
 
     const response = NextResponse.json({
       message: "Review fetched successfully!",

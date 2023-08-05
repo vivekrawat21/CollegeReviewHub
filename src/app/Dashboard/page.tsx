@@ -11,31 +11,9 @@ interface Review {
   review: string;
 }
 
-const ReviewsPage: React.FC = ({ params }: any) => {
+const ReviewsPage: React.FC = () => {
   const [reviews, setReviews] = useState<Review[]>([]);
-  const userId = localStorage.getItem("userId");
-
-  const fetchReviews = async () => {
-    try {
-      const response = await fetch(
-        `http://localhost:3000/api/users/{params}/MyDashboard`
-      );
-      if (response.ok) {
-        const data = await response.json();
-        setReviews(data.reviews);
-      } else {
-        console.error("Error fetching reviews");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
-
-  React.useEffect(() => {
-    fetchReviews();
-  }, []);
-
-  console.log(params)
+  const userId = localStorage.getItem("id");  
 
   return (
     <div className="container mx-auto px-4 py-8 min-h-screen relative">

@@ -1,17 +1,19 @@
 import connectToDB from "@/DB/db";
 import Review from "@/models/Review";
 import { NextRequest, NextResponse } from "next/server";
+import User from "@/models/User";
 
 connectToDB();
 
 export async function GET(request: NextRequest) {
   try {
-    const reviews = await Review.find({});
+    const reviews = await Review.find().populate("user");
 
     const response = NextResponse.json({
       message: "Review fetched successfully",
       success: true,
       reviews,
+      User,
     });
 
     return response;
@@ -29,6 +31,7 @@ export async function POST(request: NextRequest) {
     const reviews = await Review.create({
       collegeName,
       review,
+      User,
     });
 
     console.log(reviews);

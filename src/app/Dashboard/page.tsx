@@ -1,9 +1,11 @@
 "use client";
 import BackButton from "@/components/BackButton";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { FaPlus } from "react-icons/fa";
 import { motion } from "framer-motion";
+import axios from "axios";
+
 
 interface Review {
   id: number;
@@ -14,6 +16,21 @@ interface Review {
 const ReviewsPage: React.FC = () => {
   const [reviews, setReviews] = useState<Review[]>([]);
   const userId = localStorage.getItem("id");  
+
+
+  useEffect(() => {
+    axios
+      .get<{ reviews: Review[] }>("/api/users/Dashboard")
+      .then((response) => {
+        setReviews(response.data.reviews);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching reviews:", error);
+      });
+  }, []);
+
+
 
   return (
     <div className="container mx-auto px-4 py-8 min-h-screen relative">

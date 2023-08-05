@@ -15,12 +15,12 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const Reviews = await Review.find({ _id: loggedInUserId });
+    const reviews = await Review.find({ _id: loggedInUserId });
 
     const response = NextResponse.json({
       message: "Review fetched successfully!",
       success: true,
-      Reviews,
+      reviews,
     });
     console.log(response);
 

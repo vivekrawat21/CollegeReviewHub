@@ -1,5 +1,5 @@
 import connectToDB from "@/DB/db";
-import User from "@/models/user.model";
+import User from "@/models/User";
 import { NextRequest, NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
 

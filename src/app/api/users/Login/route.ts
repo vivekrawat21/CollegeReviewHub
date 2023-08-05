@@ -1,5 +1,5 @@
 import connectToDB from "@/DB/db";
-import User from "@/models/user.model";
+import User from "@/models/User";
 import { NextRequest, NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
@@ -46,6 +46,7 @@ export async function POST(request: NextRequest) {
         message: "Login successful",
         success: true,
         token,
+        user,
       },
       { status: 200 }
     );

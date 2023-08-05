@@ -79,7 +79,7 @@ const ReviewsPage: React.FC = () => {
             ))}
           </div>
 
-          <div className="fixed bottom-4 right-4">
+          <div className="fixed bottom-10 right-4">
             <Link href="ReviewSubmission">
               <button className="bg-gray-950 text-white rounded-full p-4 shadow-lg hover:bg-gray-700 transition-colors duration-300">
                 <FaPlus size={20} />

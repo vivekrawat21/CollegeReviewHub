@@ -13,7 +13,6 @@ const Navbar = (props: Props) => {
   const router = useRouter();
   const [loading, setLoading] = useState<boolean>(false);
 
-
   useEffect(() => {
     const currentToken = localStorage.getItem("token");
     setToken(currentToken);
@@ -24,6 +23,8 @@ const Navbar = (props: Props) => {
     try {
       await axios.get("/api/users/Logout");
       localStorage.removeItem("token");
+      localStorage.removeItem("username");
+      localStorage.removeItem("userId");
 
       setTimeout(() => {
         setLoading(false);

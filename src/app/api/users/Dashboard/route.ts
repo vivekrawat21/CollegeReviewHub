@@ -6,23 +6,18 @@ connectToDB();
 
 export async function GET(request: NextRequest) {
   try {
-    const loggedInUserId = localStorage.getItem("id");
+    const loggedInUserId = localStorage.getItem("userId");
 
-    if (!loggedInUserId) {
-      return NextResponse.json(
-        { error: "User not logged in or userId not found in localStorage" },
-        { status: 401 }
-      );
-    }
-
-    const reviews = await Review.find({ _id: loggedInUserId });
+    const reviews = await Review.find({ user: loggedInUserId }).populate(
+      "user",
+      "username email"
+    );
 
     const response = NextResponse.json({
-      message: "Review fetched successfully!",
+      message: "Review fetched successfully",
       success: true,
       reviews,
     });
-    console.log(response);
 
     return response;
   } catch (error: any) {

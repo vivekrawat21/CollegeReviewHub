@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const reviewSchema = new mongoose.Schema({
   collegeName: {
     type: String,
-    required: [true, "Please provide a heading"],
+    required: [true, "Please provide a college name"],
   },
 
   review: {

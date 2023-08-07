@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
     console.log(reviews);
 
     const response = NextResponse.json({
-      message: "Review created successfully",
+      message: "Review created successfully!",
       success: true,
     });
 

@@ -62,7 +62,7 @@ const Navbar = (props: Props) => {
                 whileTap={{ scale: 0.95 }}
               >
                 <Link
-                  href="/Review"
+                  href="/Reviews"
                   className="transition duration-300 ease-in-out hover:text-gray-700"
                 >
                   Reviews

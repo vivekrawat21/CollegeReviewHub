@@ -34,7 +34,7 @@ const ReviewSubmission: React.FC = () => {
         console.log(data);
         setLoading(false);
         if (data.success) {
-          router.push("/Review");
+          router.push("/Reviews");
         }
       })
       .catch((error) => {
@@ -57,7 +57,7 @@ const ReviewSubmission: React.FC = () => {
         delay: 0.2,
       }}
     >
-      <BackButton link="/Review" />
+      <BackButton link="/Reviews" />
       <h1 className="text-4xl font-bold my-10 pt-10 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent">
         Submit Your Review
       </h1>

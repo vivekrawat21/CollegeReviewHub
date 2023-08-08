@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -10,7 +10,8 @@ const NotFound = () => {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-4xl font-bold mb-4 animate-pulse"
+        className="text-4xl font-bold mb-4 animate-pulse
+        text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500"
       >
         404 - Page Not Found
       </motion.h1>
@@ -18,7 +19,9 @@ const NotFound = () => {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-lg text-gray-500 mb-4"
+        className="text-lg text-gray-500 mb-4
+        text-transparent bg-clip-text bg-gradient-to-r from-green-800 to-blue-300
+        "
       >
         The page you are looking for does not exist.
       </motion.p>

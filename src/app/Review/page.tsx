@@ -51,7 +51,8 @@ const ReviewsPage: React.FC = () => {
               placeholder="Search for a college..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="border border-gray-300 rounded-lg py-2 px-4"
+              className="border border-gray-300 rounded-lg py-2 px-4
+              focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent"
             />
           </div>
           <div className="grid gap-6 lg:grid-cols-3 md:grid-cols-2">

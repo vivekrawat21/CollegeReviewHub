@@ -17,7 +17,7 @@ const Home = (props: Props) => {
 
     setTimeout(() => {
       setLoading(false);
-      router.push("/Review");
+      router.push("/Reviews");
     }, 1500);
   };
 
@@ -72,7 +72,7 @@ const Home = (props: Props) => {
                 variants={buttonVariants}
                 onClick={handleReview}
               >
-                Review
+                Reviews
               </motion.button>
             ) : (
               <LoadingSpinner />

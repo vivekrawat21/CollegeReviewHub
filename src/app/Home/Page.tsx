@@ -60,8 +60,8 @@ const Home = (props: Props) => {
           </span>
         </h1>
         <p className="text-lg mb-10 font-normal">
-          Share and read honest reviews about colleges from students like you.
-          Make informed decisions about your educational future.
+          Share and read honest reviews about colleges from students like you
+          Make informed decisions about your educational future
         </p>
 
         {token ? (

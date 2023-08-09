@@ -15,10 +15,15 @@ export async function POST(request: NextRequest) {
     const user = await User.findOne({ email });
 
     if (user) {
-      return NextResponse.json(
+      const response = NextResponse.json(
         { error: "User already exists" },
         { status: 400 }
       );
+      // add CORS headers
+      response.headers.set("Access-Control-Allow-Origin", "*");
+      response.headers.set("Access-Control-Allow-Methods", "*");
+      response.headers.set("Access-Control-Allow-Headers", "*");
+      return response;
     }
 
     const salt = await bcryptjs.genSalt(10);
@@ -33,12 +38,27 @@ export async function POST(request: NextRequest) {
     const NewUser = await newUser.save();
     console.log(NewUser);
 
-    return NextResponse.json({
+    const response = NextResponse.json({
       message: "User created successfully",
       success: true,
       NewUser,
     });
+
+    // add CORS headers
+    response.headers.set("Access-Control-Allow-Origin", "*");
+    response.headers.set("Access-Control-Allow-Methods", "*");
+    response.headers.set("Access-Control-Allow-Headers", "*");
+
+    return response;
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    const response = NextResponse.json(
+      { error: error.message },
+      { status: 500 }
+    );
+    // add CORS headers
+    response.headers.set("Access-Control-Allow-Origin", "*");
+    response.headers.set("Access-Control-Allow-Methods", "*");
+    response.headers.set("Access-Control-Allow-Headers", "*");
+    return response;
   }
 }

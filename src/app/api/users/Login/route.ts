@@ -51,6 +51,11 @@ export async function POST(request: NextRequest) {
       { status: 200 }
     );
 
+    // Add CORS headers
+    response.headers.set("Access-Control-Allow-Origin", "*");
+    response.headers.set("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+    response.headers.set("Access-Control-Allow-Headers", "Content-Type");
+
     console.log(response);
 
     response.cookies.set("token", token, {

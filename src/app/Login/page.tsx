@@ -113,7 +113,7 @@ const Login = () => {
           </form>
           <div className="text-center mt-4">
             <p className="text-gray-700 text-sm">
-              Don t have an account?
+              Create an account
               <Link
                 href="/Signup"
                 className="text-slate-500 hover:text-slate-900 transition-colors duration-300 ease-in-out pl-2"

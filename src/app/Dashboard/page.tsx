@@ -15,7 +15,6 @@ interface Review {
 
 const ReviewsPage: React.FC = () => {
   const [reviews, setReviews] = useState<Review[]>([]);
-  const userId = localStorage.getItem("id");  
 
 
   useEffect(() => {

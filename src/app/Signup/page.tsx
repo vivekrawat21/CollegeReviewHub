@@ -114,7 +114,7 @@ const SignUp = () => {
           </form>
           <div className="text-center mt-4">
             <p className="text-gray-700 text-sm">
-              Already have an account?
+              Already have an account
               <Link
                 href="/Login"
                 className="text-slate-500 hover:text-slate-900 transition-colors duration-300 ease-in-out pl-2"

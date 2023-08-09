@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
 import BackButton from "@/components/BackButton";
 import Images from "@/components/Images";
 import Link from "next/link";
@@ -13,7 +13,7 @@ const Login = () => {
     password: "",
   });
 
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false);
 
   const router = useRouter();
 
@@ -33,15 +33,15 @@ const Login = () => {
         console.log(data);
         if (data.success) {
           localStorage.setItem("token", data.token);
-          localStorage.setItem("username",data.user.username)
-          localStorage.setItem("userId",data.user._id)
+          localStorage.setItem("username", data.user.username);
+          localStorage.setItem("userId", data.user._id);
           router.push("/Review");
         } else {
-          setLoading(false); 
+          setLoading(false);
         }
       })
       .catch((error) => {
-        setLoading(false); 
+        setLoading(false);
         console.error("Error during login:", error);
       });
   };
@@ -60,9 +60,7 @@ const Login = () => {
     >
       <div className="lg:w-1/2 px-4 mb-8">
         <BackButton link="/" />
-        <motion.div
-          className="bg-white shadow-md rounded px-8 pt-6 pb-8"
-        >
+        <motion.div className="bg-white shadow-md rounded px-8 pt-6 pb-8">
           <h1 className="text-4xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent">
             Login
           </h1>
@@ -120,7 +118,7 @@ const Login = () => {
                 href="/Signup"
                 className="text-slate-500 hover:text-slate-900 transition-colors duration-300 ease-in-out pl-2"
               >
-                SignUp
+                Sign&apos;Up
               </Link>
             </p>
           </div>

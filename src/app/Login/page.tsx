@@ -35,7 +35,7 @@ const Login = () => {
           localStorage.setItem("token", data.token);
           localStorage.setItem("username", data.user.username);
           localStorage.setItem("userId", data.user._id);
-          router.push("/Review");
+          router.push("/Reviews");
         } else {
           setLoading(false);
         }

@@ -64,6 +64,14 @@ export async function POST(request: NextRequest) {
 
     return response;
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    const response = NextResponse.json(
+      { error: error.message },
+      { status: 500 }
+    );
+    // add CORS headers
+    response.headers.set("Access-Control-Allow-Origin", "*");
+    response.headers.set("Access-Control-Allow-Methods", "*");
+    response.headers.set("Access-Control-Allow-Headers", "*");
+    return response;
   }
 }

@@ -22,7 +22,7 @@ const ReviewSubmission: React.FC = () => {
     e.preventDefault();
     setLoading(true);
 
-    fetch("http://localhost:3000/api/Reviews", {
+    fetch("api/Reviews", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -21,7 +21,7 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
 
-    fetch("http://localhost:3000/api/users/Login", {
+    fetch("api/users/Login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

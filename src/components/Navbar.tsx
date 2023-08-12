@@ -69,7 +69,7 @@ const Navbar = (props: Props) => {
                   Reviews
                 </Link>
               </motion.li>
-              {/* <motion.li
+              <motion.li
                 className=""
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -80,7 +80,7 @@ const Navbar = (props: Props) => {
                 >
                   Dashboard
                 </Link>
-              </motion.li> */}
+              </motion.li>
               <motion.li
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

@@ -29,6 +29,7 @@ const Navbar = (props: Props) => {
       setTimeout(() => {
         setLoading(false);
         router.push("/Login");
+        router.refresh();
       }, 1500);
     } catch (error: any) {
       console.log(error.message);

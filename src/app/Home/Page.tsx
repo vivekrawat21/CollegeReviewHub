@@ -18,6 +18,7 @@ const Home = (props: Props) => {
     setTimeout(() => {
       setLoading(false);
       router.push("/Reviews");
+      router.refresh();
     }, 1500);
   };
 

@@ -35,6 +35,8 @@ const ReviewSubmission: React.FC = () => {
         setLoading(false);
         if (data.success) {
           router.push("/Reviews");
+          router.refresh();
+          router.refresh();
         }
       })
       .catch((error) => {

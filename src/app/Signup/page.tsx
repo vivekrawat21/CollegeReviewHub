@@ -26,6 +26,7 @@ const SignUp = () => {
       console.log(response);
       setLoading(false);
       router.push("/Login");
+      router.refresh();
     } catch (error) {
       console.log(error);
       setLoading(false);

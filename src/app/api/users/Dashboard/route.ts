@@ -6,12 +6,7 @@ connectToDB();
 
 export async function GET(request: NextRequest) {
   try {
-    const loggedInUserId = localStorage.getItem("userId");
-
-    const reviews = await Review.find({ user: loggedInUserId }).populate(
-      "user",
-      "username email"
-    );
+    const reviews = await Review.find().populate("user", "username email");
 
     const response = NextResponse.json({
       message: "Review fetched successfully",

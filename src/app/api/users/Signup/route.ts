@@ -44,7 +44,6 @@ export async function POST(request: NextRequest) {
       NewUser,
     });
 
-    // add CORS headers
     response.headers.set("Access-Control-Allow-Origin", "*");
     response.headers.set("Access-Control-Allow-Methods", "*");
     response.headers.set("Access-Control-Allow-Headers", "*");

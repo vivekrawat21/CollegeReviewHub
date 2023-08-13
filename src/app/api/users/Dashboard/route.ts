@@ -14,9 +14,8 @@ export async function GET(request: NextRequest) {
       reviews,
     });
 
-    // Add CORS headers
     response.headers.set("Access-Control-Allow-Origin", "*");
-    response.headers.set("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+    response.headers.set("Access-Control-Allow-Methods", "GET");
     response.headers.set("Access-Control-Allow-Headers", "Content-Type");
 
     return response;

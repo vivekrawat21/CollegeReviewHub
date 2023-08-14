@@ -57,47 +57,47 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// export async function PUT(request: NextRequest) {
-//   try {
-//     const reqBody = await request.json();
-//     const { id, collegeName, review } = reqBody;
+export async function PUT(request: NextRequest) {
+  try {
+    const reqBody = await request.json();
+    const { id, collegeName, review } = reqBody;
 
-//     const updatedReview = await Review.findByIdAndUpdate(
-//       id,
-//       {
-//         collegeName,
-//         review,
-//       },
-//       { new: true }
-//     );
+    const updatedReview = await Review.findByIdAndUpdate(
+      id,
+      {
+        collegeName,
+        review,
+      },
+      { new: true }
+    );
 
-//     const response = NextResponse.json({
-//       message: "Review updated successfully",
-//       success: true,
-//       review: updatedReview,
-//     });
+    const response = NextResponse.json({
+      message: "Review updated successfully",
+      success: true,
+      review: updatedReview,
+    });
 
-//     return response;
-//   } catch (error: any) {
-//     return NextResponse.json({ error: error.message }, { status: 500 });
-//   }
-// }
+    return response;
+  } catch (error: any) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+}
 
-// export async function DELETE(request: NextRequest) {
-//   try {
-//     const reqBody = await request.json();
-//     const { id } = reqBody;
+export async function DELETE(request: NextRequest) {
+  try {
+    const reqBody = await request.json();
+    const { id } = reqBody;
 
-//     const deletedReview = await Review.findByIdAndDelete(id);
+    const deletedReview = await Review.findByIdAndDelete(id);
 
-//     const response = NextResponse.json({
-//       message: "Review deleted successfully",
-//       success: true,
-//       review: deletedReview,
-//     });
+    const response = NextResponse.json({
+      message: "Review deleted successfully",
+      success: true,
+      review: deletedReview,
+    });
 
-//     return response;
-//   } catch (error: any) {
-//     return NextResponse.json({ error: error.message }, { status: 500 });
-//   }
-// }
+    return response;
+  } catch (error: any) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+}

@@ -6,7 +6,6 @@ import { FiArrowLeft } from "react-icons/fi";
 type Props = {
   link: string;
 };
-// Commenting for Streak
 const BackButton = ({ link }: Props) => {
   const iconVariants = {
     hidden: { opacity: 0, x: -10 },

@@ -17,3 +17,10 @@ export async function DELETE(req: Request, res: Response) {
     });
   }
 }
+
+export async function GET(req: Request, { params }: any, res: Response) {
+  console.log(params);
+  return NextResponse.json({
+    message: "Getting Data",
+  });
+}

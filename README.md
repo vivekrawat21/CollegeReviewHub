@@ -91,5 +91,15 @@ Contributions are warmly welcomed! To contribute, please follow these steps:
 
 7. **Create a Pull Request (PR):** Visit the CollegeReviewHub repository on GitHub and click the "New Pull Request" button. Compare the changes you made in your branch with the main branch of the original repository. Provide a clear and concise description of your changes in the pull request.
 
+
+## Contributing Guidelines
+When contributing to the Blood Donation Project, please ensure that you follow these guidelines:
+- Before starting work on a new feature or bug fix, create a new branch for your changes.
+- Make your changes and test them thoroughly.
+- Ensure that your code follows the project's coding style and conventions.
+- Write clear commit messages that explain the purpose and details of your changes.
+- Push your changes to your forked repository.
+- Submit a pull request to the original repository, clearly describing the changes you have made.
+
 Thank you for considering contributing to CollegeReviewHub. Your contributions will help make this platform even more valuable for students.
 ```

@@ -1,7 +1,7 @@
 ```markdown
 # CollegeReviewHub
 
-**Description:**
+**Description**
 CollegeReviewHub is a web application designed to empower students to openly share candid reviews and ratings of their colleges. The platform offers valuable insights into various college aspects, empowering students to make informed decisions about their educational future.
 
 **Features:**
@@ -9,7 +9,7 @@ CollegeReviewHub is a web application designed to empower students to openly sha
 - **Rate Colleges:** Evaluate academics, facilities, faculty, and campus life with a rating system.
 - **Informed Decision-Making:** Access insights to choose colleges wisely.
 
-**Getting Started:**
+**Getting Started**
 
 To get started with CollegeReviewHub, follow these simple steps:
 

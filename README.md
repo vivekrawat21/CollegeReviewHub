@@ -1,7 +1,6 @@
-```markdown
 # CollegeReviewHub
 
-**Description**
+**Description:**
 CollegeReviewHub is a web application designed to empower students to openly share candid reviews and ratings of their colleges. The platform offers valuable insights into various college aspects, empowering students to make informed decisions about their educational future.
 
 **Features:**
@@ -9,22 +8,22 @@ CollegeReviewHub is a web application designed to empower students to openly sha
 - **Rate Colleges:** Evaluate academics, facilities, faculty, and campus life with a rating system.
 - **Informed Decision-Making:** Access insights to choose colleges wisely.
 
-**Getting Started**
+**Getting Started:**
 
 To get started with CollegeReviewHub, follow these simple steps:
 
 1. **Clone the Repository:** 
-   ```
+   ```shell
    git clone https://github.com/your-username/CollegeReviewHub.git
    ```
 
 2. **Install Dependencies:** 
-   ```
+   ```shell
    pnpm install
    ```
 
 3. **Start the Development Server:** 
-   ```
+   ```shell
    pnpm run dev
    ```
 
@@ -71,28 +70,26 @@ Contributions are warmly welcomed! To contribute, please follow these steps:
 1. **Fork the Repository:** Click the "Fork" button at the top right of the CollegeReviewHub repository on GitHub.
 
 2. **Clone Your Fork:** Clone your forked repository to your local machine using the following command:
-   ```
+   ```shell
    git clone https://github.com/your-username/CollegeReviewHub.git
    ```
 
 3. **Make Changes:** Make the necessary changes or improvements to the codebase.
 
-4. **Test Your Changes:** Before submitting your changes, make sure to test them thoroughly to ensure they work as expected.
+4. **Create a Branch:** Create the branch of your GitHub account name
 
 5. **Commit Your Changes:** Once you are satisfied with your changes, commit them to your local repository:
-   ```
+   ```shell
    git add .
    git commit -m "Add a descriptive commit message here"
    ```
 
 6. **Push Your Changes:** Push your changes to your forked repository on GitHub:
-   ```
-   git push origin master
+   ```shell
+   git push origin your-GitHub-name
    ```
 
 7. **Create a Pull Request (PR):** Visit the CollegeReviewHub repository on GitHub and click the "New Pull Request" button. Compare the changes you made in your branch with the main branch of the original repository. Provide a clear and concise description of your changes in the pull request.
 
-
 Thank you for considering contributing to CollegeReviewHub. Your contributions will help make this platform even more valuable for students.
 ```
-

@@ -1,5 +1,4 @@
----
-
+```markdown
 # CollegeReviewHub
 
 **Description:**
@@ -94,5 +93,6 @@ Contributions are warmly welcomed! To contribute, please follow these steps:
 7. **Create a Pull Request (PR):** Visit the CollegeReviewHub repository on GitHub and click the "New Pull Request" button. Compare the changes you made in your branch with the main branch of the original repository. Provide a clear and concise description of your changes in the pull request.
 
 
-
 Thank you for considering contributing to CollegeReviewHub. Your contributions will help make this platform even more valuable for students.
+```
+

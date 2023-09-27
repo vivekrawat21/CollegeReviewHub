@@ -11,6 +11,7 @@ CollegeReviewHub is a web application designed to empower students to openly sha
 - **Informed Decision-Making:** Access insights to choose colleges wisely.
 
 **Getting Started:**
+
 To get started with CollegeReviewHub, follow these simple steps:
 
 1. **Clone the Repository:** 

@@ -44,6 +44,13 @@ To get started with CollegeReviewHub, follow these simple steps:
         <sub><b>Saurav-Pant</b></sub>
       </a>
     </td>
+     <td align="center">
+      <a href="https://github.com/Adityamishra9719">
+        <img src="https://avatars.githubusercontent.com/u/104145978?v=4" width="100px" alt=""/>
+        <br />
+        <sub><b>Shyamtawli</b></sub>
+      </a>
+    </td>
     <td align="center">
       <a href="https://github.com/Adityamishra9719">
         <img src="https://avatars.githubusercontent.com/u/89774623?v=4" width="100px" alt=""/>

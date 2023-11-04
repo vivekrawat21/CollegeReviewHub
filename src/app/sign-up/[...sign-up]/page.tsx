@@ -1,3 +1,6 @@
+"use client"
+
+//@ts-ignore
 import { SignUp } from "@clerk/nextjs";
  
 export default function Page() {

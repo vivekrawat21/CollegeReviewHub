@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import LoadingSpinner from "@/components/LoadingSpinner";
+import { useAuth } from "@clerk/nextjs";
 
 interface Review {
   collegeName: string;
@@ -17,17 +18,23 @@ const ReviewSubmission: React.FC = () => {
   });
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const { userId } = useAuth();
 
   const handleReview = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
+
+    const dataToSend = {
+      ...reviewData,
+      userId: userId,
+    };
 
     fetch("api/Reviews", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(reviewData),
+      body: JSON.stringify(dataToSend),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -35,7 +42,6 @@ const ReviewSubmission: React.FC = () => {
         setLoading(false);
         if (data.success) {
           router.push("/Reviews");
-          router.refresh();
           router.refresh();
         }
       })

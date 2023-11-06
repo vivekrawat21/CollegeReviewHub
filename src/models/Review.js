@@ -12,11 +12,10 @@ const reviewSchema = new mongoose.Schema({
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "users",
+    ref: "User",
   },
 });
 
-const Review =
-  mongoose.models.reviews || mongoose.model("reviews", reviewSchema);
+const Review = mongoose.models.Review || mongoose.model("Review", reviewSchema);
 
 export default Review;

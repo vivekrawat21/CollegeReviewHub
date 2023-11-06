@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import LoadingSpinner from "./LoadingSpinner";
 import axios from "axios";
+import { UserButton } from "@clerk/nextjs";
+import { useAuth } from "@clerk/nextjs";
 
 type Props = {};
 
@@ -12,6 +14,7 @@ const Navbar = (props: Props) => {
   const [token, setToken] = useState<string | null>(null);
   const router = useRouter();
   const [loading, setLoading] = useState<boolean>(false);
+  const { isLoaded, userId, sessionId, getToken } = useAuth();
 
   useEffect(() => {
     const currentToken = localStorage.getItem("token");
@@ -55,50 +58,63 @@ const Navbar = (props: Props) => {
         </motion.div>
 
         <ul className="flex space-x-4 text-lg font-bold justify-center items-center">
-          {token && (
-            <>
-              <motion.li
-                className="mr-8"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link
-                  href="/Reviews"
-                  className="transition duration-300 ease-in-out hover:text-gray-700"
+          {(token || userId) && (
+              <>
+                <motion.li
+                  className="mr-8"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  Reviews
-                </Link>
-              </motion.li>
-              <motion.li
-                className=""
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link
-                  href="/Dashboard"
-                  className="transition duration-300 ease-in-out hover:text-gray-700 pr-8"
-                >
-                  Dashboard
-                </Link>
-              </motion.li>
-              <motion.li
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="ml-8"
-              >
-                {!loading ? (
-                  <button
-                    className="bg-slate-950 hover:bg-slate-700 text-white font-bold py-2 px-3 rounded focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
-                    onClick={handleLogOut}
+                  <Link
+                    href="/Reviews"
+                    className="transition duration-300 ease-in-out hover:text-gray-700"
                   >
-                    Logout
-                  </button>
-                ) : (
-                  <LoadingSpinner />
-                )}
-              </motion.li>
-            </>
-          )}
+                    Reviews
+                  </Link>
+                </motion.li>
+                <motion.li
+                  className=""
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Link
+                    href="/Dashboard"
+                    className="transition duration-300 ease-in-out hover:text-gray-700 pr-8"
+                  >
+                    Dashboard
+                  </Link>
+                </motion.li>
+                {token ? (
+                  <motion.li
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="ml-8"
+                  >
+                    {!loading ? (
+                      <button
+                        className="bg-slate-950 hover:bg-slate-700 text-white font-bold py-2 px-3 rounded focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
+                        onClick={handleLogOut}
+                      >
+                        Logout
+                      </button>
+                    ) : (
+                      <LoadingSpinner />
+                    )}
+                  </motion.li>
+                ) : null}
+                {userId ? (
+                  <motion.li
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="ml-8"
+                  >
+                    <div className="">
+                      {userId ? <UserButton afterSignOutUrl="/" /> : null}
+                    </div>
+                  </motion.li>
+                ) : null}
+              </>
+            )}
         </ul>
       </nav>
       <hr className="w-full my-2 border-gray-300" />

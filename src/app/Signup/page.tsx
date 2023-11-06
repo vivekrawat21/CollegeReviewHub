@@ -124,6 +124,13 @@ const SignUp = () => {
               </Link>
             </p>
           </div>
+          <div className="text-center mt-10">
+            <Link href="/sign-in">
+              <button className="bg-black text-white px-4 py-2 rounded-full">
+                Sign In with Google
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
 

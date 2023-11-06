@@ -1,12 +1,10 @@
-"use client"
-
 //@ts-ignore
-import { SignUp } from "@clerk/nextjs";
- 
+import { SignIn } from "@clerk/nextjs";
+
 export default function Page() {
   return (
     <div className="flex justify-center items-center h-screen">
-      <SignUp />;
+      <SignIn />
     </div>
   );
 }

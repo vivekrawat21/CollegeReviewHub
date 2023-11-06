@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import LoadingSpinner from "@/components/LoadingSpinner";
+import { useAuth } from "@clerk/nextjs";
+
 
 type Props = {};
 
@@ -11,6 +13,8 @@ const Home = (props: Props) => {
   const [token, setToken] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
+  const { isLoaded, userId, sessionId, getToken } = useAuth();
+
 
   const handleReview = () => {
     setLoading(true);
@@ -65,7 +69,7 @@ const Home = (props: Props) => {
           Make informed decisions about your educational future
         </p>
 
-        {token ? (
+        {token || userId? (
           <>
             {!loading ? (
               <motion.button

@@ -6,14 +6,17 @@ import Images from "@/components/Images";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import LoadingSpinner from "@/components/LoadingSpinner";
+import { useAuth } from "@clerk/nextjs";
+
 
 const Login = () => {
   const [user, setUser] = useState({
     username: "",
     password: "",
   });
-
+  
   const [loading, setLoading] = useState(false);
+  const { isLoaded, userId, sessionId, getToken } = useAuth();
 
   const router = useRouter();
 
@@ -35,7 +38,7 @@ const Login = () => {
           localStorage.setItem("token", data.token);
           localStorage.setItem("username", data.user.username);
           localStorage.setItem("userId", data.user._id);
-          console.log(data.user)
+          console.log(data.user);
           router.push("/Reviews");
           router.refresh();
         } else {
@@ -123,6 +126,13 @@ const Login = () => {
                 SignUp
               </Link>
             </p>
+          </div>
+          <div className="text-center mt-10">
+            <Link href="/sign-up">
+              <button className="bg-black text-white px-4 py-2 rounded-full">
+                Sign Up with Google
+              </button>
+            </Link>
           </div>
         </motion.div>
       </div>

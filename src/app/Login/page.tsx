@@ -8,13 +8,12 @@ import { useRouter } from "next/navigation";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import { useAuth } from "@clerk/nextjs";
 
-
 const Login = () => {
   const [user, setUser] = useState({
     username: "",
     password: "",
   });
-  
+
   const [loading, setLoading] = useState(false);
   const { isLoaded, userId, sessionId, getToken } = useAuth();
 
@@ -39,8 +38,6 @@ const Login = () => {
           localStorage.setItem("username", data.user.username);
           localStorage.setItem("userId", data.user._id);
           console.log(data.user);
-          router.push("/Reviews");
-          router.refresh();
         } else {
           setLoading(false);
         }

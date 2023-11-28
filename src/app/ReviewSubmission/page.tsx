@@ -4,7 +4,8 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import LoadingSpinner from "@/components/LoadingSpinner";
-import { useAuth } from "@clerk/nextjs";
+import { useClerk } from "@clerk/nextjs";
+
 
 interface Review {
   collegeName: string;
@@ -18,7 +19,8 @@ const ReviewSubmission: React.FC = () => {
   });
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const { userId } = useAuth();
+  const { user } = useClerk();
+
 
   const handleReview = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -26,7 +28,8 @@ const ReviewSubmission: React.FC = () => {
 
     const dataToSend = {
       ...reviewData,
-      userId: userId,
+      creator:user?.firstName,
+      creatorImgUrl:user?.imageUrl
     };
 
     fetch("api/Reviews", {

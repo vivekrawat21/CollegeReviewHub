@@ -30,13 +30,15 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const reqBody = await request.json();
-    const { collegeName, review } = reqBody;
+    const { collegeName, review, creator, creatorImgUrl } = reqBody;
     console.log(reqBody);
 
     const reviews = await Review.create({
       collegeName,
       review,
       User,
+      creator,
+      creatorImgUrl,
     });
 
     console.log(reviews);

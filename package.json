@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/clerk-react": "^4.27.2",
     "@clerk/nextjs": "^4.26.2",
     "@types/node": "20.4.4",
     "@types/react": "18.2.16",

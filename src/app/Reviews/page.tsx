@@ -6,19 +6,19 @@ import { FaPlus } from "react-icons/fa";
 import axios from "axios";
 import { motion } from "framer-motion";
 import SplashScreen from "@/components/SplashScreen";
-import { useAuth } from "@clerk/nextjs";
 
 interface Review {
   _id: number;
   collegeName: string;
   review: string;
+  creator: string;
+  creatorImgUrl: string;
 }
 
 const ReviewsPage: React.FC = () => {
   const [reviews, setReviews] = useState<Review[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const { isLoaded, userId, sessionId, getToken } = useAuth();
 
   useEffect(() => {
     axios
@@ -66,12 +66,19 @@ const ReviewsPage: React.FC = () => {
                 exit={{ opacity: 0, y: -50 }}
                 transition={{ duration: 0.5 }}
               >
-                <h4
-                  className="absolute top-4 right-4 font-medium bg-gray-100 px-4 py-2 rounded shadow-md hover:shadow-xl  transition-shadow duration-300 ease-in-out
+                <div className="flex justify-between">
+                  <h4
+                    className="absolute top-4 left-4 font-medium bg-gray-100 px-4 py-2 rounded shadow-md hover:shadow-xl  transition-shadow duration-300 ease-in-out
                 "
-                >
-                  {userId ? userId : "Name"}
-                </h4>
+                  >
+                    {review.creator}
+                  </h4>
+                  <img
+                    src={review.creatorImgUrl}
+                    alt="Creator"
+                    className="h-12 w-12 rounded-full absolute top-4 right-4"
+                  />
+                </div>
 
                 <h2 className="text-xl font-semibold mb-2">
                   {review.collegeName}

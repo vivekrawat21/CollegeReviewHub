@@ -2,10 +2,11 @@
 import BackButton from "@/components/BackButton";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
-import { FaPlus } from "react-icons/fa";
+import { FaEdit, FaPlus, FaTrash } from "react-icons/fa";
 import axios from "axios";
 import { motion } from "framer-motion";
 import SplashScreen from "@/components/SplashScreen";
+import { useClerk } from "@clerk/clerk-react";
 
 interface Review {
   _id: number;
@@ -19,6 +20,7 @@ const ReviewsPage: React.FC = () => {
   const [reviews, setReviews] = useState<Review[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const { user } = useClerk();
 
   useEffect(() => {
     axios
@@ -56,7 +58,7 @@ const ReviewsPage: React.FC = () => {
               focus:outline-none focus:ring-2 focus:ring-gray-300 focus:border-transparent"
             />
           </div>
-          <div className="grid gap-6 lg:grid-cols-3 md:grid-cols-2">
+          <div className="grid gap-6 lg:grid-cols-3 md:grid-cols-2 relative">
             {filteredReviews.map((review) => (
               <motion.div
                 key={review._id}
@@ -84,6 +86,17 @@ const ReviewsPage: React.FC = () => {
                   {review.collegeName}
                 </h2>
                 <p className="text-gray-600">{review.review}</p>
+
+                {review.creator === user?.firstName ? (
+                  <div className="absolute bottom-4 right-4">
+                    <button className="text-white  bg-black p-2 rounded-lg mr-5 ">
+                      <FaEdit />
+                    </button>
+                    <button className="bg-red-600 text-white p-2 rounded-md">
+                      <FaTrash />
+                    </button>
+                  </div>
+                ) : null}
               </motion.div>
             ))}
           </div>

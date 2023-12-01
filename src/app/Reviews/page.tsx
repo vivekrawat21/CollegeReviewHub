@@ -78,7 +78,7 @@ const ReviewsPage: React.FC = () => {
                   <img
                     src={review.creatorImgUrl}
                     alt="Creator"
-                    className="h-12 w-12 rounded-full absolute top-4 right-4"
+                    className="h-12 w-12 rounded-full absolute top-4 right-4 hover:h-14 hover:w-14 transition-all duration-300 ease-in-out delay-75"
                   />
                 </div>
 

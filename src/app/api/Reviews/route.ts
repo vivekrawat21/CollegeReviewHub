@@ -16,7 +16,6 @@ export async function GET(request: NextRequest) {
       User,
     });
 
-    // Add CORS headers
     response.headers.set("Access-Control-Allow-Origin", "*");
     response.headers.set("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
     response.headers.set("Access-Control-Allow-Headers", "Content-Type");
@@ -48,7 +47,6 @@ export async function POST(request: NextRequest) {
       success: true,
     });
 
-    // Add CORS headers
     response.headers.set("Access-Control-Allow-Origin", "*");
     response.headers.set("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
     response.headers.set("Access-Control-Allow-Headers", "Content-Type");
@@ -59,47 +57,9 @@ export async function POST(request: NextRequest) {
   }
 }
 
-export async function PUT(request: NextRequest) {
-  try {
-    const reqBody = await request.json();
-    const { id, collegeName, review } = reqBody;
-
-    const updatedReview = await Review.findByIdAndUpdate(
-      id,
-      {
-        collegeName,
-        review,
-      },
-      { new: true }
-    );
-
-    const response = NextResponse.json({
-      message: "Review updated successfully",
-      success: true,
-      review: updatedReview,
-    });
-
-    return response;
-  } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
-  }
-}
-
 export async function DELETE(request: NextRequest) {
-  try {
-    const reqBody = await request.json();
-    const { id } = reqBody;
-
-    const deletedReview = await Review.findByIdAndDelete(id);
-
-    const response = NextResponse.json({
-      message: "Review deleted successfully",
-      success: true,
-      review: deletedReview,
-    });
-
-    return response;
-  } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
-  }
+  const id = request.nextUrl.searchParams.get("id");
+  await connectToDB();
+  await Review.findByIdAndDelete(id);
+  return NextResponse.json({ message: "Topic deleted" }, { status: 200 });
 }

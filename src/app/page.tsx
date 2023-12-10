@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import { useAuth } from "@clerk/nextjs";
 
-
 type Props = {};
 
 const Home = (props: Props) => {
@@ -14,7 +13,6 @@ const Home = (props: Props) => {
   const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
   const { isLoaded, userId, sessionId, getToken } = useAuth();
-
 
   const handleReview = () => {
     setLoading(true);
@@ -52,28 +50,28 @@ const Home = (props: Props) => {
 
   return (
     <motion.div
-      className="flex flex-col items-center lg:flex-row lg:justify-between lg:h-[80vh] lg:mt-16 px-4  md:px-16 lg:px-24 mt-10"
+      className="flex flex-col items-center lg:flex-row lg:justify-between lg:max-h-[80vh] lg:mt-16 px-4 md:px-8 lg:px-16 mt-10"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
-      <div className="lg:w-1/2 lg:flex lg:flex-col lg:items-start lg:justify-center lg:pr-8">
-        <h1 className="text-4xl font-bold mb-4 sm:mb-6">
+      <div className="lg:w-1/2 lg:flex lg:flex-col lg:items-start lg:justify-center lg:pr-8 mb-8 lg:mb-0">
+        <h1 className="text-3xl lg:text-4xl font-bold mb-4 sm:mb-6">
           Welcome to
           <span className="pl-3 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent">
             CollegeReviewHub
           </span>
         </h1>
-        <p className="text-lg mb-10 font-normal">
+        <p className="text-base lg:text-lg mb-6 lg:mb-10 font-normal">
           Share and read honest reviews about colleges from students like you
           Make informed decisions about your educational future
         </p>
 
-        {token || userId? (
+        {token || userId ? (
           <>
             {!loading ? (
               <motion.button
-                className="bg-slate-950 text-white px-6 py-3 rounded-lg font-bold hover:bg-slate-700 mb-6"
+                className="bg-slate-950 text-white px-4 lg:px-6 py-2 lg:py-3 rounded-lg font-bold hover:bg-slate-700 mb-6"
                 variants={buttonVariants}
                 onClick={handleReview}
               >
@@ -86,7 +84,7 @@ const Home = (props: Props) => {
         ) : (
           <Link href="/Signup">
             <motion.button
-              className="bg-slate-950 text-white px-6 py-3 rounded-lg font-bold hover:bg-slate-700 mb-6"
+              className="bg-slate-950 text-white px-4 lg:px-6 py-2 lg:py-3 rounded-lg font-bold hover:bg-slate-700 mb-6"
               variants={buttonVariants}
             >
               Get Started
